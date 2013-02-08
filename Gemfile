@@ -13,6 +13,8 @@ end
 
 gem 'jquery-rails'
 
-gem "paperclip", "~> 3.0"
+gem 'paperclip', '~> 3.0'
 
-gem "taglib-ruby"
+gem 'taglib-ruby'
+
+gem 'backbone-on-rails'
