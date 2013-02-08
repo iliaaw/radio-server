@@ -1,3 +1,5 @@
 Kigendan::Application.routes.draw do
-  match '' => 'static_pages#home'
+  root :to => 'static_pages#home', :as => "home"
+
+  resources :tracks
 end

@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Title</th>
+    <th>Edit</th>
+    <th>Remove</th>
+  </tr>
+  <% @tracks.each do |track| %>
+    <tr>
+      <td><%= track.author %></td>
+      <td><%= track.title %></td>
+      <td><%= link_to "Edit", edit_track_path(track) %></td>
+      <td><%= link_to "Remove", track, :method => :delete, :confirm => "Are you sure?" %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,9 @@
+<%= form_for @track do |form| %>
+  <%= form.label :author, "Author" %>
+  <%= form.text_field :author %>
+
+  <%= form.label :title, "Title" %>
+  <%= form.text_field :title %>
+
+  <%= form.submit "Done" %>
+<% end %>
