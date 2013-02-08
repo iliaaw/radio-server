@@ -17,11 +17,17 @@ class TracksController < ApplicationController
   end
 
   def create
-    track = Track.new(params[:track])
-    if track.save
-      redirect_to tracks_path
+    @track = Track.new(params[:track])
+    if @track.save
+      respond_to do |format|
+        format.html { redirect_to @track }
+        format.json { render :json => @track }
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json { render :json => @track.errors }
+      end
     end
   end
 
@@ -30,18 +36,27 @@ class TracksController < ApplicationController
   end
 
   def update
-    track = Track.find(params[:id])
-    if track.update_attributes(params[:track])
-      redirect_to tracks_path
+    @track = Track.find(params[:id])
+    if @track.update_attributes(params[:track])
+      respond_to do |format| 
+        format.html { redirect_to @track }
+        format.json { render :json => @track }
+      end
     else
-      render edit
+      respond_to do |format|
+        format.html { render 'edit' }
+        format.json { render :json => @track.errors }
+      end
     end
   end
 
   def destroy
-    track = Track.find(params[:id])
-    track.destroy
-    redirect_to tracks_path
+    @track = Track.find(params[:id])
+    @track.destroy
+    respond_to do |format|
+        format.html { redirect_to tracks_path }
+        format.json { head :no_content }
+      end
   end
 
 end
