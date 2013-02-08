@@ -1,4 +1,17 @@
-<td><%= track.get('title') %></td>
-<td><%= track.get('author') %></td>
-<td><a href="#">Edit</a></td>
-<td><a href="#">Remove</a></td>
+<td>
+  <span class="metadata"><%= track.get('title') %></span>
+  <input class="input" type="text" />
+</td>
+
+<td>
+  <span class="metadata"><%= track.get('author') %></span>
+  <input class="input" type="text" />
+</td>
+
+<td>
+  <a class="edit-link" href="#">Edit</a>
+</td>
+
+<td>
+  <a class="remove-link" href="#">Remove</a>
+</td>

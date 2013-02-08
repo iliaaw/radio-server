@@ -6,6 +6,7 @@ Kigendan.Views.TracksIndex = Backbone.View.extend({
 
     initialize: function() {
         this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'add', this.render);
         console.log("Kigendan.Views.TracksIndex view initialized");
     },
 

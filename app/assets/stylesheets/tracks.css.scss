@@ -1,3 +1,15 @@
-// Place all the styles related to the Tracks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.track .metadata {
+  visibility: visible;
+}
+
+.track .input {
+  visibility: hidden;
+}
+
+.track-editing .metadata {
+  visibility: hidden;
+}
+
+.track-editing .input {
+  visibility: visible;
+}
