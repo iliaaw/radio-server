@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Edit</th>
+    <th>Remove</th>
+  </tr>
+  <% $.each(tracks, function(index, value) { %>
+    <tr>
+      <td><%= value.attributes.title %></td>
+      <td><%= value.attributes.author %></td>
+      <td><a href="#">Edit</a></td>
+      <td><a href="#">Remove</a></td>
+    </tr>
+  <% }) %>
+</table>
