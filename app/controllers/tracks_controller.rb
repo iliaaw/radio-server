@@ -19,21 +19,8 @@ class TracksController < ApplicationController
   def create
     @track = Track.create(params[:track])
     respond_to do |format|
-      format.js { render "create" }
+      format.json { render :json => @track}
     end
-
-    # @track = Track.new(params[:track])
-    # if @track.save
-    #   respond_to do |format|
-    #     format.html { redirect_to @track }
-    #     format.json { render :json => @track }
-    #   end
-    # else
-    #   respond_to do |format|
-    #     format.html { render 'new' }
-    #     format.json { render :json => @track.errors }
-    #   end
-    # end
   end
 
   def edit

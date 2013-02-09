@@ -10,7 +10,7 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
         var that = this;
         this.$el.fileupload({
 
-            dataType: "script",
+            dataType: "json",
 
             add: function(e, data) {
                 $.each(data.files, function(index, file) {
