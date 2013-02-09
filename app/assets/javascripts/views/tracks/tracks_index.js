@@ -1,6 +1,6 @@
 Kigendan.Views.TracksIndex = Backbone.View.extend({
 
-    template: JST['tracks/index'],
+    template: JST['tracks/tracks_index'],
 
     el: '#tracks-list',
 

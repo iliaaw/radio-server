@@ -1,1 +1,7 @@
-<%= render "form" %>
+<div id="uploader">
+  <%= form_for @track do |form| %>
+    <%= form.file_field :upload, :multiple => true, :name => "track[upload]" %>
+  <% end %>
+
+  <div id="files-list"></div>
+</div>

@@ -1,0 +1,5 @@
+<% if @track.new_record? %>
+  //alert("Failed to upload tracks: <%= j @track.errors.full_messages.join(', ').html_escape %>");
+<% else %>
+  //alert("uploaded");
+<% end %>
