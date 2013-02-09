@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209154758) do
+ActiveRecord::Schema.define(:version => 20130209204700) do
 
   create_table "tracks", :force => true do |t|
     t.string   "album"
-    t.string   "author"
+    t.string   "artist"
     t.integer  "bitrate"
     t.integer  "duration"
     t.string   "genre"

@@ -41,8 +41,10 @@ Kigendan.Views.Track = Backbone.View.extend({
         link.removeClass("edit-link");
         link.addClass("save-link");
 
-        view.$el.find(".input").eq(0).val(view.model.get('title'))
-        view.$el.find(".input").eq(1).val(view.model.get('author'))
+        view.$el.find(".input-title").val(view.model.get('title'))
+        view.$el.find(".input-artist").val(view.model.get('artist'))
+        view.$el.find(".input-album").val(view.model.get('album'))
+        view.$el.find(".input-genre").val(view.model.get('genre'))
         view.$el.find(".input").first().focus();
     },
 
@@ -62,8 +64,10 @@ Kigendan.Views.Track = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title: this.$el.find(".input").eq(0).val(), 
-            author: this.$el.find(".input").eq(1).val()
+            title: this.$el.find(".input-title").val(), 
+            artist: this.$el.find(".input-artist").val(),
+            album: this.$el.find(".input-album").val(),
+            genre: this.$el.find(".input-genre").val()
         });
     },
 

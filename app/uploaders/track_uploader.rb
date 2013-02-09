@@ -22,7 +22,7 @@ class TrackUploader < CarrierWave::Uploader::Base
     TagLib::FileRef.open(file.path) do |ref|
       tag = ref.tag
       model.album = tag.album
-      model.author = tag.artist
+      model.artist = tag.artist
       model.genre = tag.genre
       model.title = tag.title
     end

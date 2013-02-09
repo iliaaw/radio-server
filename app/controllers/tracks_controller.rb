@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   
   def index
-    @tracks = Track.all
+    @tracks = Track.all(:order => "id")
     respond_to do |format|
       format.html 
       format.json { render :json => @tracks }
