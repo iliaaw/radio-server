@@ -8,12 +8,12 @@ class TracksController < ApplicationController
     end
   end
 
-  def show
-    @track = Track.find(params[:id])
-  end
-
   def new
     @track = Track.new
+    respond_to do |format|
+      format.html 
+      format.json { render :json => @track}
+    end
   end
 
   def create
@@ -21,10 +21,6 @@ class TracksController < ApplicationController
     respond_to do |format|
       format.json { render :json => @track}
     end
-  end
-
-  def edit
-    @track = Track.find(params[:id])
   end
 
   def update
