@@ -12,14 +12,14 @@ class TracksController < ApplicationController
     @track = Track.new
     respond_to do |format|
       format.html 
-      format.json { render :json => @track}
+      format.json { render :json => @track }
     end
   end
 
   def create
     @track = Track.create(params[:track])
     respond_to do |format|
-      format.json { render :json => @track}
+      format.json { render :json => @track }
     end
   end
 
