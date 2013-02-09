@@ -18,3 +18,5 @@ gem 'paperclip', '~> 3.0'
 gem 'taglib-ruby'
 
 gem 'backbone-on-rails'
+
+gem 'carrierwave'
