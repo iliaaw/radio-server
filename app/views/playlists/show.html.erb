@@ -1,1 +1,5 @@
-Title: <%= @playlist.title %>
+Title: <%= @playlist.title %><br />
+
+<% @playlist.tracks.each do |track| %>
+  <%= track.title %><br />
+<% end %>

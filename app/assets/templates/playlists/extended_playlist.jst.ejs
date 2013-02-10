@@ -1,0 +1,16 @@
+<table id="playlist-tracks">
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Genre</th>
+  </tr>
+  <% $.each(playlist.tracks.models, function(index, value) { %>
+    <tr>
+      <td><%= value.get('title') %></td>
+      <td><%= value.get('artist') %></td>
+      <td><%= value.get('album') %></td>
+      <td><%= value.get('genre') %></td>
+    </tr>
+  <% }) %>
+</table>

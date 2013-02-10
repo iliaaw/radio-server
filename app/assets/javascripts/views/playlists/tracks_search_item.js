@@ -19,10 +19,10 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
         return this;
     },
 
-    addToPlaylist: function() {
-        // find the playlist model (view? collection?)
-        // add this.model to this collection
-        console.log("added to playlist");
+    addToPlaylist: function(event) {
+        event.preventDefault();
+
+        globalPlaylist.tracks.add(this.model);
     }
 
 });

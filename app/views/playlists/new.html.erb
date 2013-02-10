@@ -1,9 +1,11 @@
-<%= form_for @playlist do |form| %>
+<%= form_for @playlist, :html => { :id => "playlist-form" } do |form| %>
   <%= form.label :title, "Title" %>
   <%= form.text_field :title %>
 
   <%= form.submit "Done" %>
 <% end %>
+
+<div id="extended-playlist"></div>
 
 <div style="border-top: 1px solid #444; margin: 10px 0px;"></div>
 
