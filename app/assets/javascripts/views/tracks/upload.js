@@ -7,7 +7,7 @@ Kigendan.Views.Upload = Backbone.View.extend({
     className: 'upload',
 
     initialize: function() {
-        console.log("Kigendan.Models.Upload initialized");
+        
     },
 
     render: function() {

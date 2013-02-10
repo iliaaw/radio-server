@@ -1,17 +1,26 @@
+#tracks {
+  width: 100%;
+  table-layout: fixed;
+}
+
+#tracks th {
+  text-align: left;
+}
+
 .track .metadata {
-  visibility: visible;
+  display: inline;
 }
 
 .track .input {
-  visibility: hidden;
+  display: none;
 }
 
 .track-editing .metadata {
-  visibility: hidden;
+  display: none;
 }
 
 .track-editing .input {
-  visibility: visible;
+  display: inline;
 }
 
 .upload-filename {

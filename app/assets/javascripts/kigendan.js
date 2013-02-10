@@ -9,6 +9,10 @@ window.Kigendan = {
         tracks.fetch();
 
         var uploader = new Kigendan.Views.TrackUploader();
+
+        var playlists = new Kigendan.Collections.Playlists();
+        var playlistsView = new Kigendan.Views.PlaylistsIndex({ collection: playlists });
+        playlists.fetch();
     }
 };
 

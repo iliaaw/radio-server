@@ -1,10 +1,10 @@
-Kigendan.Views.Track = Backbone.View.extend({
+Kigendan.Views.Playlist = Backbone.View.extend({
 
-    template: JST['tracks/track'],
+    template: JST['playlists/playlist'],
 
     tagName: 'tr',
 
-    className: 'track',
+    className: 'playlist',
 
     events: {
         "click a.edit-link": "startEdit",
@@ -13,12 +13,14 @@ Kigendan.Views.Track = Backbone.View.extend({
     },
 
     initialize: function() {
+        console.log("Playlist view initialized");
         this.listenTo(this.model, 'change', this.render);
         this.listenTo(this.model, 'destroy', this.remove);
     },
 
     render: function() {
-        $(this.el).html(this.template({ track: this.model }));
+        this.$el.html(this.template({ playlist: this.model }));
+        console.log("Playlist view rendered")
         return this;
     },
 
@@ -30,7 +32,7 @@ Kigendan.Views.Track = Backbone.View.extend({
     },
 
     showInputWidgets: function(view) {
-        view.$el.addClass("track-editing");
+        view.$el.addClass("playlist-editing");
 
         var link = view.$el.find(".edit-link").first()
         link.text("Save");
@@ -38,14 +40,11 @@ Kigendan.Views.Track = Backbone.View.extend({
         link.addClass("save-link");
 
         view.$el.find(".input-title").val(view.model.get('title'))
-        view.$el.find(".input-artist").val(view.model.get('artist'))
-        view.$el.find(".input-album").val(view.model.get('album'))
-        view.$el.find(".input-genre").val(view.model.get('genre'))
         view.$el.find(".input").first().focus();
     },
 
     hideInputWidgets: function() {
-        $(".track-editing").removeClass("track-editing");
+        $(".playlist-editing").removeClass("playlist-editing");
 
         $.each($(".save-link"), function() {
             $(this).text("Edit")
@@ -60,10 +59,7 @@ Kigendan.Views.Track = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title: this.$el.find(".input-title").val(), 
-            artist: this.$el.find(".input-artist").val(),
-            album: this.$el.find(".input-album").val(),
-            genre: this.$el.find(".input-genre").val()
+            title: this.$el.find(".input-title").val()
         });
     },
 

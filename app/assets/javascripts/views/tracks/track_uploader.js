@@ -19,7 +19,6 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
                     that.views[file.name] = view;
                 });
                 data.submit();
-                console.log("File added");
             },
 
             progress: function(e, data) {
@@ -34,13 +33,9 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
             }
 
         })
-
-
-        console.log("Kigendan.Views.TrackUploader initialized");
     },
 
     render: function() {
-        console.log("Kigendan.Views.TrackUploader rendered");
         return this;
     }
 

@@ -5,7 +5,7 @@ Kigendan.Collections.Tracks = Backbone.Collection.extend({
     url: '/tracks',
 
     initialize: function() {
-        console.log("Kigendan.Collections.Tracks initialized");
+        
     }
 
 });
