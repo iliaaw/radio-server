@@ -1,13 +1,13 @@
-Kigendan.Views.ExtendedPlaylist = Backbone.View.extend({
+Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
-    template: JST['playlists/extended_playlist'],
+    template: JST['playlists/playlist_with_tracks'],
 
     el: '#extended-playlist',
 
     tagName: 'div',
 
     initialize: function() {
-        this.model.collection = new Kigendan.Collections.Playlists();
+        this.model.collection = new Kigendan.Collections.PlaylistsWithTracks();
 
         this.listenTo(this.model.tracks, 'add', this.render);
 
@@ -15,7 +15,7 @@ Kigendan.Views.ExtendedPlaylist = Backbone.View.extend({
         $('#playlist-form').submit(function(event) {
             event.preventDefault();
 
-            that.model.save({ title: 'test' });
+            that.model.save({ title: $('#playlist_title').val() });
         });
     },
 

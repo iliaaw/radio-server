@@ -14,8 +14,8 @@ window.Kigendan = {
         var playlistsView = new Kigendan.Views.PlaylistsIndex({ collection: playlists });
         playlists.fetch();
 
-        globalPlaylist = new Kigendan.Models.Playlist();
-        var globalPlaylistView = new Kigendan.Views.ExtendedPlaylist({ model: globalPlaylist });
+        globalPlaylist = new Kigendan.Models.PlaylistWithTracks();
+        var globalPlaylistView = new Kigendan.Views.PLaylistWithTracks({ model: globalPlaylist });
         
         var tracksSearch = new Kigendan.Views.TracksSearch();
     }
