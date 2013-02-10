@@ -13,6 +13,8 @@ window.Kigendan = {
         var playlists = new Kigendan.Collections.Playlists();
         var playlistsView = new Kigendan.Views.PlaylistsIndex({ collection: playlists });
         playlists.fetch();
+
+        var tracksSearch = new Kigendan.Views.TracksSearch();
     }
 };
 

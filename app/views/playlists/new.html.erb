@@ -1,1 +1,17 @@
-<%= render "form" %>
+<%= form_for @playlist do |form| %>
+  <%= form.label :title, "Title" %>
+  <%= form.text_field :title %>
+
+  <%= form.submit "Done" %>
+<% end %>
+
+<div style="border-top: 1px solid #444; margin: 10px 0px;"></div>
+
+<%= form_tag tracks_path, :method => :get, :id => "tracks-search-form" do %>
+  <%= label_tag :search, "Search track by title:" %>
+  <%= text_field_tag :search %>
+
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="tracks-search-wrapper"></div>

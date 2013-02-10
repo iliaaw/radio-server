@@ -1,10 +1,18 @@
 class TracksController < ApplicationController
   
   def index
-    @tracks = Track.all(:order => "id")
-    respond_to do |format|
-      format.html 
-      format.json { render :json => @tracks }
+    if params[:search]
+      @tracks = Track.where("title LIKE ?", "%#{params[:search]}%")
+      respond_to do |format|
+        format.html
+        format.json { render :json => @tracks }
+      end
+    else
+      @tracks = Track.all(:order => "id")
+      respond_to do |format|
+        format.html 
+        format.json { render :json => @tracks }
+      end
     end
   end
 

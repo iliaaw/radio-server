@@ -7,7 +7,6 @@ Kigendan.Views.PlaylistsIndex = Backbone.View.extend({
     initialize: function() {
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'add', this.render);
-        console.log("PlaylistsIndex view initialized");
     },
 
     render: function() {
@@ -16,7 +15,6 @@ Kigendan.Views.PlaylistsIndex = Backbone.View.extend({
             var view = new Kigendan.Views.Playlist({ model: value });
             $('#playlists').append(view.render().$el);
         });
-        console.log("PlaylistsIndex view rendered");
         return this;
     }
 

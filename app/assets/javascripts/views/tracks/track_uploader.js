@@ -25,10 +25,9 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
                 $.each(data.files, function(index, file) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
                     var view = that.views[file.name];
-                    //console.log(view)
                     view.options.progress = progress;
                     view.render();
-                    console.log(file.name + ": progress: " + progress);
+                    //console.log(file.name + ": progress: " + progress);
                 });
             }
 

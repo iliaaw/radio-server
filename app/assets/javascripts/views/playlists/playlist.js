@@ -13,14 +13,12 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     },
 
     initialize: function() {
-        console.log("Playlist view initialized");
         this.listenTo(this.model, 'change', this.render);
         this.listenTo(this.model, 'destroy', this.remove);
     },
 
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
-        console.log("Playlist view rendered")
         return this;
     },
 

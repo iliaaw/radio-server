@@ -1,9 +1,11 @@
-#playlists {
+#playlists,
+#tracks-search {
   width: 100%;
   table-layout: fixed;
 }
 
-#playlists th {
+#playlists th,
+#tracks-search th {
   text-align: left;
 }
 
