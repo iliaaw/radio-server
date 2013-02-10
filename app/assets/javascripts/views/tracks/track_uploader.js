@@ -16,18 +16,21 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
                 $.each(data.files, function(index, file) {
                     var view = new Kigendan.Views.Upload({ file: file, progress: 0 });
                     $("#files-list").append(view.render().$el);
-                    that.views[data.file] = view;
+                    that.views[file.name] = view;
                 });
                 data.submit();
                 console.log("File added");
             },
 
             progress: function(e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                var view = that.views[data.file];
-                view.options.progress = progress;
-                view.render();
-                console.log(view.options.file.name + ": progress: " + progress);
+                $.each(data.files, function(index, file) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    var view = that.views[file.name];
+                    //console.log(view)
+                    view.options.progress = progress;
+                    view.render();
+                    console.log(file.name + ": progress: " + progress);
+                });
             }
 
         })
