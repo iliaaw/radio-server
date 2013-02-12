@@ -4,8 +4,6 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
     el: '#extended-playlist',
 
-    tagName: 'div',
-
     initialize: function() {
         this.model.collection = new Kigendan.Collections.PlaylistsWithTracks();
 
@@ -22,6 +20,10 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
+        $.each(this.model.tracks.models, function(index, value) {
+            var view = new Kigendan.Views.PlaylistWithTracksItem({ model: value });
+            $('#playlist-tracks').append(view.render().$el);
+        });
         return this;
     }
 
