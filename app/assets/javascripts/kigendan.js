@@ -3,21 +3,9 @@ window.Kigendan = {
     Collections: {},
     Views: {},
     Routers: {},
-    initialize: function() {
-        var tracks = new Kigendan.Collections.Tracks();
-        var tracksView = new Kigendan.Views.TracksIndex({ collection: tracks });
-        tracks.fetch();
-
-        var uploader = new Kigendan.Views.TrackUploader();
-
-        var playlists = new Kigendan.Collections.Playlists();
-        var playlistsView = new Kigendan.Views.PlaylistsIndex({ collection: playlists });
-        playlists.fetch();
-
-        globalPlaylist = new Kigendan.Models.PlaylistWithTracks();
-        var globalPlaylistView = new Kigendan.Views.PLaylistWithTracks({ model: globalPlaylist });
-        
-        var tracksSearch = new Kigendan.Views.TracksSearch();
+    initialize: function() {  
+        var mainRouter = new Kigendan.Routers.Main();
+        Backbone.history.start({ pushState: true });
     }
 };
 
