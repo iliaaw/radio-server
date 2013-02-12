@@ -66,7 +66,9 @@ class PlaylistsController < ApplicationController
   def play
     @playlist = Playlist.find(params[:id])
     @playlist.play
-    redirect_to :back
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 
 end
