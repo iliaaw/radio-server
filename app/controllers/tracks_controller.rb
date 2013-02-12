@@ -1,8 +1,8 @@
 class TracksController < ApplicationController
   
   def index
-    if params[:search]
-      @tracks = Track.where("title LIKE ?", "%#{params[:search]}%")
+    if params[:query] and (['title', 'artist', 'album', 'genre'].include? params[:field])
+      @tracks = Track.where("#{params[:field]} LIKE ?", "%#{params[:query]}%")
       respond_to do |format|
         format.html
         format.json { render :json => @tracks }

@@ -9,9 +9,24 @@
 <div style="border-top: 1px solid #444; margin: 10px 0px;"></div>
 
 <%= form_tag tracks_path, :method => :get, :id => "tracks-search-form", :class => "form form-inline" do %>
-  <%= text_field_tag :search, "", :placeholder => "Title" %>
+  <%= text_field_tag :query, "", :placeholder => "Title" %>
 
-  <%= submit_tag "Search track by title", :class => "btn btn-primary" %>
+  <%= hidden_field_tag :field, "title", :id => "field" %>
+    
+  <div class="btn-group">
+    <%= submit_tag "Search by title", :id => "search-button", :class => "btn" %>
+    
+    <%= button_tag :class => "btn dropdown-toggle", :"data-toggle" => "dropdown" do %>
+      <span class="caret"></span>
+    <% end %>
+    
+    <ul id="fields-list" class="dropdown-menu">
+      <li><a data-search="title" href="#">Title</a></li>
+      <li><a data-search="artist" href="#">Artist</a></li>
+      <li><a data-search="album" href="#">Album</a></li>
+      <li><a data-search="genre" href="#">Genre</a></li>
+    </ul>
+  </div>
 <% end %>
 
 <div id="tracks-search-wrapper"></div>

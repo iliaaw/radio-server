@@ -6,16 +6,22 @@ Kigendan.Views.TracksSearch = Backbone.View.extend({
 
     initialize: function() {
         var that = this;
-        $("#tracks-search-form").submit(function(event) {
+        $('#tracks-search-form').submit(function(event) {
             event.preventDefault();
 
             var processResult = function(data, status) {
                 that.collection = new Kigendan.Collections.Tracks(data);
                 that.render();
             };
-
-            $.get(this.action, $(this).serialize(), processResult, "json");
+            
+            $.get(this.action, $(this).serialize(), processResult, 'json');
         });
+
+        $('#fields-list li a').click(function(event) {
+            event.preventDefault();
+
+            that.setSearchField($(this).attr('data-search'));
+        })
     },
 
     render: function() {
@@ -25,6 +31,15 @@ Kigendan.Views.TracksSearch = Backbone.View.extend({
             $('#tracks-search').append(view.render().$el);
         });
         return this;
+    },
+
+    getSubmitUrl: function(form) {
+        return $(form).attr('action') + '?' + $(form).serialize();
+    },
+
+    setSearchField: function(searchField) {
+        $('#search-button').val('Search by '+ searchField);
+        $('#field').val(searchField);
     }
 
 });
