@@ -21,3 +21,5 @@ gem 'taglib-ruby'
 gem 'backbone-on-rails'
 
 gem 'carrierwave'
+
+gem 'bootstrap-sass'

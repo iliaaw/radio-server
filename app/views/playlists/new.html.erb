@@ -1,19 +1,17 @@
-<%= form_for @playlist, :html => { :id => "playlist-form" } do |form| %>
-  <%= form.label :title, "Title" %>
-  <%= form.text_field :title %>
+<%= form_for @playlist, :html => { :id => "playlist-form", :class => "form form-inline" } do |form| %>
+  <%= form.text_field :title, :placeholder => "Title" %>
 
-  <%= form.submit "Done" %>
+  <%= form.submit "Done", :class => "btn btn-primary" %>
 <% end %>
 
 <div id="extended-playlist"></div>
 
 <div style="border-top: 1px solid #444; margin: 10px 0px;"></div>
 
-<%= form_tag tracks_path, :method => :get, :id => "tracks-search-form" do %>
-  <%= label_tag :search, "Search track by title:" %>
-  <%= text_field_tag :search %>
+<%= form_tag tracks_path, :method => :get, :id => "tracks-search-form", :class => "form form-inline" do %>
+  <%= text_field_tag :search, "", :placeholder => "Title" %>
 
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search track by title", :class => "btn btn-primary" %>
 <% end %>
 
 <div id="tracks-search-wrapper"></div>

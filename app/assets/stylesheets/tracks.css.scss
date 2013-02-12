@@ -1,3 +1,4 @@
+/*
 #tracks {
   width: 100%;
   table-layout: fixed;
@@ -6,6 +7,7 @@
 #tracks th {
   text-align: left;
 }
+*/
 
 .track .metadata {
   display: inline;
@@ -28,15 +30,6 @@
   width: 200px;
 }
 
-.upload-progress-wrapper {
-  display: inline-block;
-  width: 500px;
-  height: 20px;
-  background: #999;
-  border: 1px solid #222;
-}
-
-.upload-progress {
-  height: 20px;
-  background: #444;
+.progress {
+  /*display: inline-block;*/
 }
