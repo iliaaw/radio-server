@@ -9,7 +9,8 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     events: {
         "click a.edit-link": "startEdit",
         "click a.save-link": "finishEdit",
-        "click a.remove-link": "removeModel"
+        "click a.remove-link": "removeModel",
+        "click a.play-link": "play"
     },
 
     initialize: function() {
@@ -65,6 +66,17 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         event.preventDefault();
 
         this.model.destroy();
+    },
+
+    play: function(event) {
+        event.preventDefault();
+
+        console.log('add');
+
+        $.ajax({
+            url: this.model.url() + "/play",
+            type: "post"
+        });
     }
 
 });

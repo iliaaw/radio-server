@@ -63,5 +63,11 @@ class PlaylistsController < ApplicationController
       end
   end
 
+  def play
+    @playlist = Playlist.find(params[:id])
+    @playlist.play
+    redirect_to :back
+  end
+
 end
   
