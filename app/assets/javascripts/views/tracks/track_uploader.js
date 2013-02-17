@@ -1,8 +1,10 @@
 Kigendan.Views.TrackUploader = Backbone.View.extend({
 
-    template: JST['tracks/uploader'],
-
     el: '#uploader',
+
+    tagName: 'table',
+
+    className: 'uploads-list',
 
     views: {},
 
@@ -12,26 +14,37 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
 
             dataType: "json",
 
-            add: function(e, data) {
+            add: function(event, data) {
+                var jqXHR = data.submit();
                 $.each(data.files, function(index, file) {
-                    var view = new Kigendan.Views.Upload({ file: file, progress: 0 });
-                    $("#files-list").append(view.render().$el);
+                    var view = new Kigendan.Views.Upload({ 
+                        file: file, 
+                        progress: 0,
+                        jqXHR: jqXHR
+                    });
+                    $("#uploads-list").append(view.render().$el);
                     that.views[file.name] = view;
                 });
-                data.submit();
             },
 
-            progress: function(e, data) {
+            progress: function(event, data) {
                 $.each(data.files, function(index, file) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
                     var view = that.views[file.name];
                     view.options.progress = progress;
                     view.render();
-                    //console.log(file.name + ": progress: " + progress);
+                });
+            },
+
+            done: function(event, data) {
+                $.each(data.files, function(index, file) {
+                    var view = that.views[file.name];
+                    view.finishUpload();
                 });
             }
 
-        })
+        });
+
     },
 
     render: function() {

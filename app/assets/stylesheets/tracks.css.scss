@@ -1,4 +1,5 @@
-#tracks {
+#tracks,
+#uploads-list {
   width: 100%;
   table-layout: fixed;
 }
@@ -23,11 +24,18 @@
   display: inline;
 }
 
-.upload-filename {
-  display: inline-block;
-  width: 200px;
+.upload {
+
 }
 
-.progress {
-  /*display: inline-block;*/
+.upload-progress .progress {
+  margin-bottom: 0px;
+}
+
+.upload-cancelled {
+  color: red;
+}
+
+.upload-cancel {
+  text-align: right !important;
 }
