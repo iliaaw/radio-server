@@ -6,20 +6,20 @@ gem 'pg', '~>0.14.1'
 
 gem 'unicorn'
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-fileupload-rails'
-end
-
+gem 'uglifier', '>= 1.0.3'
+  
 gem 'jquery-rails'
 
-gem 'paperclip', '~> 3.0'
-
-gem 'taglib-ruby'
+gem 'jquery-fileupload-rails'
 
 gem 'backbone-on-rails'
 
-gem 'carrierwave'
+gem 'sass-rails',   '~> 3.2.3'
 
 gem 'bootstrap-sass'
+
+gem 'carrierwave'
+
+gem 'kaminari'
+
+gem 'taglib-ruby'
