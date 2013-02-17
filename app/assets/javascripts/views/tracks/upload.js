@@ -11,10 +11,16 @@ Kigendan.Views.Upload = Backbone.View.extend({
     },
 
     initialize: function() {
+        this.uploadStatus = {
+            running: 0,
+            finished: 1,
+            cancelled: 2
+        };
+        this.status = this.uploadStatus.running;
     },
 
     render: function() {
-        this.$el.html(this.template({ file: this.options.file, progress: this.progress }));
+        this.$el.html(this.template({ file: this.options.file, upload: this }));
         this.$el.find('.bar').css('width', this.options.progress + '%');
         return this;
     },
@@ -24,12 +30,13 @@ Kigendan.Views.Upload = Backbone.View.extend({
 
         this.options.jqXHR.abort();
 
-        this.$el.find('.progress').addClass('progress-danger');
-        this.$el.find('.upload-cancel').html('<span>Cancelled</span>');
+        this.status = this.uploadStatus.cancelled;
+        this.render();
     },
 
     finishUpload: function() {
-        this.$el.find('.upload-cancel').html('<span>Finished</span>');
+        this.status = this.uploadStatus.finished;
+        this.render();
     }
 
 });
