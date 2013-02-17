@@ -8,7 +8,7 @@ class TracksController < ApplicationController
         format.json { render :json => @tracks }
       end
     else
-      @tracks = Track.all(:order => "id")
+      @tracks = Kaminari.paginate_array(Track.all(:order => "id")).page params[:page]
       respond_to do |format|
         format.html 
         format.json { render :json => @tracks }
