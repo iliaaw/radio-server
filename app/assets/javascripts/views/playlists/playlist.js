@@ -38,8 +38,8 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         link.removeClass("edit-link");
         link.addClass("save-link");
 
-        view.$el.find(".input-title").val(view.model.get('title'))
-        view.$el.find(".input").first().focus();
+        view.$el.find(".playlist-input-title").val(view.model.get('title'))
+        view.$el.find(".playlist-input").first().focus();
     },
 
     hideInputWidgets: function() {
@@ -58,7 +58,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title: this.$el.find(".input-title").val()
+            title: this.$el.find(".playlist-input-title").val()
         });
     },
 
