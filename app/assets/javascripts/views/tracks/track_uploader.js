@@ -1,10 +1,10 @@
 Kigendan.Views.TrackUploader = Backbone.View.extend({
 
-    el: '#uploader',
+    el: '.uploader',
 
     tagName: 'table',
 
-    className: 'uploads-list',
+    className: 'uploads-table',
 
     views: {},
 
@@ -22,7 +22,7 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
                         progress: 0,
                         jqXHR: jqXHR
                     });
-                    $("#uploads-list").append(view.render().$el);
+                    $(".uploads-table").append(view.render().$el);
                     that.views[file.name] = view;
                 });
             },

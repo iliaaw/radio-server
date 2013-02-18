@@ -1,17 +1,17 @@
 <td class="upload-filename"><%= file.name %></td>
 
-<td class="upload-progress">
-  <div class="progress progress-striped<% if (upload.status == upload.uploadStatus.cancelled) { %> progress-danger<% } %>">
-    <div class="bar"></div>
+<td>
+  <div class="upload-progress">
+    <div class="upload-progress-bar"></div>
   </div>
 </td>
 
-<td class="upload-cancel">
+<td class="upload-status">
   <% if (upload.status == upload.uploadStatus.running) { %>
-    <i class="icon-ban-circle"></i> <a class="cancel-link" href="#">Cancel</a>
+    <a class="cancel-link" href="#">Cancel</a>
   <% } else if (upload.status == upload.uploadStatus.finished ) { %>
-    <i class="icon-ok"></i> Finished
+    <span>Finished</span>
   <% } else if (upload.status == upload.uploadStatus.cancelled) { %>
-    <i class="icon-ban-circle"></i> Cancelled
+    <span>Cancelled</span>
   <% } %>
 </td>

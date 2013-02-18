@@ -2,7 +2,7 @@ Kigendan.Views.TracksIndex = Backbone.View.extend({
 
     template: JST['tracks/tracks_index'],
 
-    el: '#tracks-wrapper',
+    el: '.tracks-wrapper',
 
     initialize: function() {
         this.listenTo(this.collection, 'reset', this.render);
@@ -13,7 +13,7 @@ Kigendan.Views.TracksIndex = Backbone.View.extend({
         this.$el.html(this.template());
         $.each(this.collection.models, function(index, value) {
             var view = new Kigendan.Views.Track({ model: value });
-            $('#tracks').append(view.render().$el)
+            $('.tracks-table').append(view.render().$el)
         });
         return this;
     }

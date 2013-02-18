@@ -1,32 +1,17 @@
-<%= form_for @playlist, :html => { :id => "playlist-form", :class => "form form-inline" } do |form| %>
+<%= form_for @playlist, :html => { :class => "playlist-form" } do |form| %>
   <%= form.text_field :title, :placeholder => "Title" %>
 
-  <%= form.submit "Done", :class => "btn btn-primary" %>
+  <%= form.submit "Done" %>
 <% end %>
 
-<div id="extended-playlist"></div>
+<div class="playlist-tracks-wrapper"></div>
 
-<div style="border-top: 1px solid #444; margin: 10px 0px;"></div>
-
-<%= form_tag tracks_path, :method => :get, :id => "tracks-search-form", :class => "form form-inline" do %>
+<%= form_tag tracks_path, :method => :get, :class => "tracks-search-form" do %>
   <%= text_field_tag :query, "", :placeholder => "Title" %>
+    
+  <%= submit_tag "Search by" %>
 
-  <%= hidden_field_tag :field, "title", :id => "field" %>
-    
-  <div class="btn-group">
-    <%= submit_tag "Search by title", :id => "search-button", :class => "btn" %>
-    
-    <%= button_tag :class => "btn dropdown-toggle", :"data-toggle" => "dropdown" do %>
-      <span class="caret"></span>
-    <% end %>
-    
-    <ul id="fields-list" class="dropdown-menu">
-      <li><a data-search="title" href="#">Title</a></li>
-      <li><a data-search="artist" href="#">Artist</a></li>
-      <li><a data-search="album" href="#">Album</a></li>
-      <li><a data-search="genre" href="#">Genre</a></li>
-    </ul>
-  </div>
+  <%= select_tag :field, "<option>title</option><option>artist</option><option>album</option><option>genre</option>".html_safe %>
 <% end %>
 
-<div id="tracks-search-wrapper"></div>
+<div class="tracks-search-wrapper"></div>

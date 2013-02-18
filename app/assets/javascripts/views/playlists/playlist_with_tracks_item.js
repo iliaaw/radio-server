@@ -4,7 +4,7 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'playlist-with-tracks-item',
+    className: 'playlist-track',
 
     events: {
         'click a.remove-from-playlist-link': 'removeFromPlaylist'
