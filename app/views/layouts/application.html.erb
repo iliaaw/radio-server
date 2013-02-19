@@ -8,9 +8,16 @@
   </head>
   
   <body>
-    <%= render "layouts/nav" %>
-    <div class="container">
-      <%= yield %>
+    <div class="wrapper">
+      <%= render "layouts/nav" %>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+
+      <div class="footer-push"></div>
     </div>
+
+    <%= render "layouts/footer" %>
   </body>
 </html>

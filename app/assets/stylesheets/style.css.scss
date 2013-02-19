@@ -1,27 +1,82 @@
+$body-background: #eee;
+
+$container-width: 960px;
+$container-background: #fefefe;
+
+$nav-height: 50px;
+$nav-item-color: #fefefe;
+$nav-item-hover-color: #05958b;
+$nav-item-active-color: #74eceb;
+
+$footer-height: 100px;
+
+$dark-background-color: #444;
+$table-row-heigth: 30px;
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: $body-background;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    width: $container-width;
+    margin: 0px auto (-$footer-height);
+    background: $container-background;
+}
+
+.container {
+    margin: 10px;
+    /*outline: 1px dashed gray;*/
+}
+
 .nav-wrapper {
-    background: #444;
+    background: $dark-background-color;
+    position: absolute;
+    left: 0px;
+    right: 0px;
 }
 
 .nav {
-    width: 960px;
-    height: 50px;
+    width: $container-width;
+    height: $nav-height;
     margin: 0px auto;
+}
+
+.nav-push {
+    height: $nav-height;
 }
 
 .nav-item {
     display: inline-block;
-    line-height: 50px;
-    padding: 0px 10px;
 }
 
 .nav-item a {
-    color: #efefef;
+    display: block;
+    padding: 0px 10px;
+    line-height: $nav-height;
+    color: $nav-item-color;
     text-decoration: none;
 }
 
-.container {
-    width: 960px;
-    margin: 10px auto 0px;
+.nav-item a:hover {
+    background: $nav-item-hover-color;
+}
+
+.nav-item-active a {
+    color: $nav-item-active-color;
+    background: $dark-background-color image-url('triangle.png') no-repeat center bottom;
+}
+
+.nav-item-active a:hover {
+    background: $nav-item-hover-color image-url('triangle.png') no-repeat center bottom;
 }
 
 .tracks-table {
@@ -30,7 +85,7 @@
 }
 
 .tracks-table tr {
-    line-height: 30px;
+    line-height: $table-row-heigth;
 }
 
 .tracks-table th {
@@ -64,7 +119,7 @@
 }
 
 .uploads-table tr {
-    line-height: 30px;
+    line-height: $table-row-heigth;
 }
 
 .upload-progress {
@@ -88,7 +143,7 @@
 }
 
 .playlists-table tr {
-    line-height: 30px;
+    line-height: $table-row-heigth;
 }
 
 .playlists-table th {
@@ -122,7 +177,7 @@
 }
 
 .tracks-search-table tr {
-    line-height: 30px;
+    line-height: $table-row-heigth;
 }
 
 .tracks-search-table th {
@@ -136,10 +191,24 @@
 }
 
 .playlist-tracks-table tr {
-    line-height: 30px;
+    line-height: $table-row-heigth;
 }
 
 .playlist-tracks-table th {
     text-align: left;
     font-weight: bold;
+}
+
+.footer-push {
+    height: $footer-height;
+}
+
+.footer-wrapper {
+    background: $dark-background-color;
+}
+
+.footer {
+    height: $footer-height;
+    width: $container-width;
+    margin: 0px auto;
 }
