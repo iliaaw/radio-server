@@ -9,6 +9,8 @@ $nav-item-hover-color: #05958b;
 $nav-item-active-color: #74eceb;
 
 $footer-height: 100px;
+$footer-width: 960px;
+$footer-padding: 10px;
 
 $dark-background-color: #444;
 $table-row-heigth: 30px;
@@ -34,7 +36,6 @@ body {
 
 .container {
     margin: 10px;
-    /*outline: 1px dashed gray;*/
 }
 
 .nav-wrapper {
@@ -91,6 +92,8 @@ body {
 .tracks-table th {
     text-align: left;
     font-weight: bold;
+
+    border-bottom: 2px solid #999;
 }
 
 .track {
@@ -208,7 +211,8 @@ body {
 }
 
 .footer {
-    height: $footer-height;
-    width: $container-width;
+    height: $footer-height - 2 * $footer-padding;
+    width: $footer-width - 2 * $footer-padding;
+    padding: $footer-padding;
     margin: 0px auto;
 }

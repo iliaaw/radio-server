@@ -1,10 +1,12 @@
 class PlaylistsController < ApplicationController
 
   def index
-    @playlists = Kaminari.paginate_array(Playlist.all(:order => "id")).page params[:page]
     respond_to do |format|
       format.html 
-      format.json { render :json => @playlists }
+      format.json do
+        @playlists = Kaminari.paginate_array(Playlist.all(:order => "id")).page params[:page]
+        render :json => @playlists
+      end
     end
   end
 

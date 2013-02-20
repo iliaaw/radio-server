@@ -1,17 +1,16 @@
 class TracksController < ApplicationController
   
   def index
-    if params[:query] and (['title', 'artist', 'album', 'genre'].include? params[:field])
-      @tracks = Track.where("#{params[:field]} LIKE ?", "%#{params[:query]}%")
-      respond_to do |format|
-        format.html
-        format.json { render :json => @tracks }
-      end
-    else
-      @tracks = Kaminari.paginate_array(Track.all(:order => "id")).page params[:page]
-      respond_to do |format|
-        format.html 
-        format.json { render :json => @tracks }
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:query] and ['title', 'artist', 'album', 'genre'].include? params[:field]
+          @tracks = Track.where("#{params[:field]} LIKE ?", "%#{params[:query]}%")
+          render :json => @tracks
+        else
+          @tracks = Kaminari.paginate_array(Track.all(:order => "id")).page params[:page]
+          render :json => @tracks
+        end
       end
     end
   end
