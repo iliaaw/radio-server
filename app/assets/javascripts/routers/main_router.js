@@ -1,24 +1,23 @@
 Kigendan.Routers.Main = Backbone.Router.extend({
 
     routes: {
-        'tracks':            'tracksIndex',
-        'tracks/page/:page': 'tracksIndex',
-        'tracks/new':        'newTrack',
-        'playlists':         'playlistsIndex',
-        'playlists/page/:page':         'playlistsIndex',
-        'playlists/new':     'newPlaylist',
-        'playlists/:id':     'showPlaylist'
+        'tracks':              'tracksIndex',
+        'tracks/page:page':    'tracksIndex',
+        'tracks/new':          'newTrack',
+        'playlists':           'playlistsIndex',
+        'playlists/page:page': 'playlistsIndex',
+        'playlists/new':       'newPlaylist',
+        'playlists/:id':       'showPlaylist'
     },
 
     initialize: function() {
-        
+
     },
 
     tracksIndex: function(page) {
         var tracks = new Kigendan.Collections.Tracks();
-        tracks.url = page ? ('/tracks/page/' + page) : '/tracks';
         var tracksView = new Kigendan.Views.TracksIndex({ collection: tracks });
-        tracks.fetch();
+        tracks.reset(window._gTracks ? window._gTracks : null);
     },
 
     newTrack: function() {
@@ -27,9 +26,8 @@ Kigendan.Routers.Main = Backbone.Router.extend({
 
     playlistsIndex: function(page) {
         var playlists = new Kigendan.Collections.Playlists();
-        playlists.url = page ? ('/playlists/page/' + page) : '/playlists';
         var playlistsView = new Kigendan.Views.PlaylistsIndex({ collection: playlists });
-        playlists.fetch();
+        playlists.reset(window._gPlaylists ? window._gPlaylists : null);
     },
 
     newPlaylist: function() {

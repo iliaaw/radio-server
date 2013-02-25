@@ -10,5 +10,6 @@ window.Kigendan = {
 };
 
 $(document).ready(function(){
+    $.ajaxSetup({ cache: false });
     Kigendan.initialize();
 });

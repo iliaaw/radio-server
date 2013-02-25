@@ -23,6 +23,10 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
         } else {
             return response;
         }
+    },
+
+    urlRoot: function() {
+        return '/playlists';
     }
 
 });
