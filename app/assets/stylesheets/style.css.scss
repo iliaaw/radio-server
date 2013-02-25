@@ -80,6 +80,14 @@ body {
     background: $nav-item-hover-color image-url('triangle.png') no-repeat center bottom;
 }
 
+.table {
+
+}
+
+.table th {
+    border-bottom: 2px solid #999;
+}
+
 .tracks-table {
     width: 100%;
     table-layout: fixed;
@@ -92,8 +100,6 @@ body {
 .tracks-table th {
     text-align: left;
     font-weight: bold;
-
-    border-bottom: 2px solid #999;
 }
 
 .track {
@@ -207,7 +213,7 @@ body {
 }
 
 .footer-wrapper {
-    background: $dark-background-color;
+    background: image-url('footer.png');
 }
 
 .footer {
