@@ -1,12 +1,19 @@
 Kigendan::Application.routes.draw do
+
   root :to => 'static_pages#home', :as => 'home'
 
-  resources :tracks, :only => [:index, :new, :create, :update, :destroy] do
-    get 'page/:page', :action => :index, :on => :collection
+  resources :tracks, 
+            :only => [:index, :new, :create, :update, :destroy],
+            :constraints => { :id => /[0-9]+/ } do
+    get 'page:page', :action => :index, :on => :collection
   end
 
-  resources :playlists do
-    get 'page/:page', :action => :index, :on => :collection
+  resources :playlists, 
+            :only => [:index, :new, :create, :show, :update, :destroy, :play],
+            :constraints => { :id => /[0-9]+/ } do
+    get 'page:page', :action => :index, :on => :collection
+
+    post 'play', :as => 'play', :action => :play, :on => :member
   end
-  match '/playlists/:id/play', :to => 'playlists#play', :as => 'play_playlist', :via => :post
+
 end
