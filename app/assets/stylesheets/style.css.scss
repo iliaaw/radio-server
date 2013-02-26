@@ -226,3 +226,21 @@ body {
 .paginator {
     border: 1px dashed gray;
 }
+
+.pagination-prev-first,
+.pagination-next-last,
+.pagination-pages {
+    display: inline-block;
+}
+
+.pagination-prev,
+.pagination-first {
+    display: block;
+    text-align: right;
+}
+
+.pagination-next,
+.pagination-last {
+    display: block;
+    text-align: left;
+}

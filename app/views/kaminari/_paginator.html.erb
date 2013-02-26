@@ -6,18 +6,26 @@
     remote:        data-remote
     paginator:     the paginator that renders the pagination tags inside
 -%>
-<%= paginator.render do -%>
-  <nav class="pagination">
-    <%= first_page_tag unless current_page.first? %>
-    <%= prev_page_tag unless current_page.first? %>
-    <% each_page do |page| -%>
-      <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
-        <%= page_tag page %>
-      <% elsif !page.was_truncated? -%>
-        <%= gap_tag %>
-      <% end -%>
-    <% end -%>
-    <%= next_page_tag unless current_page.last? %>
-    <%= last_page_tag unless current_page.last? %>
-  </nav>
-<% end -%>
+<%= paginator.render do %>
+  <div class="pagination">
+    <div class="pagination-prev-first">
+      <%= prev_page_tag %>
+      <%= first_page_tag %>
+    </div>
+
+    <div class="pagination-pages">
+      <% each_page do |page| %>
+        <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+          <%= page_tag page %>
+        <% elsif !page.was_truncated? -%>
+          <%= gap_tag %>
+        <% end -%>
+      <% end %>
+    </div>
+
+    <div class="pagination-next-last">
+      <%= next_page_tag %>
+      <%= last_page_tag %>
+    </div>
+  </div>
+<% end %>
