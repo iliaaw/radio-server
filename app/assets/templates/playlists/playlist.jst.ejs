@@ -1,5 +1,5 @@
 <td>
-  <a class="playlist-metadata" href="<%= playlist.url() %>"><%= playlist.get('title') %></a>
+  <a class="playlist-metadata" href="<%= playlist.url() %>"><%= playlist.escape('title') %></a>
   <input class="playlist-input playlist-input-title" type="text" />
 </td>
 

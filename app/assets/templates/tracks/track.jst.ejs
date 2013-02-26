@@ -1,20 +1,20 @@
 <td>
-  <span class="track-metadata"><%= track.get('title') %></span>
+  <span class="track-metadata"><%= track.escape('title') %></span>
   <input class="track-input track-input-title" type="text" />
 </td>
 
 <td>
-  <span class="track-metadata"><%= track.get('artist') %></span>
+  <span class="track-metadata"><%= track.escape('artist') %></span>
   <input class="track-input track-input-artist" type="text" />
 </td>
 
 <td>
-  <span class="track-metadata"><%= track.get('album') %></span>
+  <span class="track-metadata"><%= track.escape('album') %></span>
   <input class="track-input track-input-album" type="text" />
 </td>
 
 <td>
-  <span class="track-metadata"><%= track.get('genre') %></span>
+  <span class="track-metadata"><%= track.escape('genre') %></span>
   <input class="track-input track-input-genre" type="text" />
 </td>
 
