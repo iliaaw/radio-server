@@ -44,13 +44,11 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     if @playlist.update_attributes(params[:playlist])
-      respond_to do |format| 
-        format.html { redirect_to @playlist }
+      respond_to do |format|
         format.json { render :json => @playlist }
       end
     else
       respond_to do |format|
-        format.html { render 'edit' }
         format.json { render :json => @playlist.errors }
       end
     end

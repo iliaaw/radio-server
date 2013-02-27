@@ -227,6 +227,10 @@ body {
     font-weight: bold;
 }
 
+.playlist-track-removed {
+    background: $table-removed-item-color;
+}
+
 .footer-push {
     height: $footer-height;
 }

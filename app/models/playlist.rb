@@ -3,14 +3,21 @@ require 'net/telnet'
 class Playlist < ActiveRecord::Base
 
   attr_accessible :description, :title, :listings_attributes
-  has_many :listings
+  has_many :listings, :dependent => :destroy
   has_many :tracks, :through => :listings
-  accepts_nested_attributes_for :listings
+  accepts_nested_attributes_for :listings, :allow_destroy => true
 
   alias_method :original_to_json, :to_json
+  alias_method :original_as_json, :as_json
 
-  def to_json(options = {})
-    json = original_to_json(options.merge(:include => :tracks))
+  def as_json(options)
+    json = original_as_json(options.merge(:only => [:id, :title, :description]))
+    tracks = []
+    listings.each do |l|
+      track = l.track.as_json(:only => [:id, :title, :artist, :album, :genre])
+      tracks << track.merge({ :listing_id => l.id })
+    end
+    json.merge(:tracks => tracks)
   end
 
   def play

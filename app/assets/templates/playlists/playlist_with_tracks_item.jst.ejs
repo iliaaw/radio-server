@@ -14,6 +14,12 @@
   <%= track.escape('genre') %>
 </td>
 
-<td>
-  <a class="remove-from-playlist-link" href="#">Remove from playlist</d>
-</td>
+<% if (track.isRemovedFromPlaylist) { %>
+  <td>
+    <span>Removed</span>
+  </td>
+<% } else { %>
+  <td>
+    <a class="remove-from-playlist-link" href="#">Remove from playlist</d>
+  </td>
+<% } %>

@@ -6,7 +6,11 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
 
     listingsAttributes: function() {
         return this.tracks.map(function(value) {
-            return { track_id: value.get('id') };
+            return {
+                id: value.get('listing_id'),
+                track_id: value.get('id'),
+                _destroy: value.isRemovedFromPlaylist
+            }
         });
     },
 
@@ -19,10 +23,8 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
         if (response.tracks) {
             this.tracks = new Kigendan.Collections.Tracks(response.tracks);
             delete response.tracks;
-            return response;
-        } else {
-            return response;
         }
+        return response;
     },
 
     urlRoot: function() {

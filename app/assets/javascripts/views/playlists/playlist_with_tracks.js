@@ -18,10 +18,16 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
+
+        var that = this;
         $.each(this.model.tracks.models, function(index, value) {
-            var view = new Kigendan.Views.PlaylistWithTracksItem({ model: value });
+            var view = new Kigendan.Views.PlaylistWithTracksItem({
+                model: value, 
+                playlist: that.model 
+            });
             $('.playlist-tracks-table').append(view.render().$el);
         });
+
         return this;
     }
 
