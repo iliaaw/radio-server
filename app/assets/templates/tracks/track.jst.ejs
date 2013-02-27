@@ -1,36 +1,35 @@
+<td>
+  <span class="track-metadata"><%= track.escape('title') %></span>
+  <input class="track-input track-input-title" type="text" />
+</td>
+
+<td>
+  <span class="track-metadata"><%= track.escape('artist') %></span>
+  <input class="track-input track-input-artist" type="text" />
+</td>
+
+<td>
+  <span class="track-metadata"><%= track.escape('album') %></span>
+  <input class="track-input track-input-album" type="text" />
+</td>
+
+<td>
+  <span class="track-metadata"><%= track.escape('genre') %></span>
+  <input class="track-input track-input-genre" type="text" />
+</td>
+
 <% if (track.isRemoved) { %>
-  <td>Removed</td>
   <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
+
+  <td>
+    <span>Removed</span>
+  </td>
 <% } else { %>
   <td>
-    <span class="track-metadata"><%= track.escape('title') %></span>
-    <input class="track-input track-input-title" type="text" />
-  </td>
+  <a class="edit-link" href="#">Edit</a>
+</td>
 
   <td>
-    <span class="track-metadata"><%= track.escape('artist') %></span>
-    <input class="track-input track-input-artist" type="text" />
-  </td>
-
-  <td>
-    <span class="track-metadata"><%= track.escape('album') %></span>
-    <input class="track-input track-input-album" type="text" />
-  </td>
-
-  <td>
-    <span class="track-metadata"><%= track.escape('genre') %></span>
-    <input class="track-input track-input-genre" type="text" />
-  </td>
-
-  <td>
-    <i class="icon-pencil"></i> <a class="edit-link" href="#">Edit</a>
-  </td>
-
-  <td>
-    <i class="icon-trash"></i> <a class="remove-link" href="#">Remove</a>
+    <a class="remove-link" href="#">Remove</a>
   </td>
 <% } %>

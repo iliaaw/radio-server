@@ -1,7 +1,16 @@
+
+
 <% if (playlist.isRemoved) { %>
-  <td>Removed</td>
+  <td>
+    <span><%= playlist.escape('title') %></span>
+  </td>
+
   <td></td>
-  <td></td>
+
+  <td>
+    <span>Removed</span>
+  </td>
+
   <td></td>
 <% } else { %>
   <td>
@@ -10,14 +19,14 @@
   </td>
 
   <td>
-    <i class="icon-pencil"></i> <a class="edit-link" href="#">Edit</a>
+    <a class="edit-link" href="#">Edit</a>
   </td>
 
   <td>
-    <i class="icon-trash"></i> <a class="remove-link" href="#">Remove</a>
+    <a class="remove-link" href="#">Remove</a>
   </td>
 
   <td>
-    <i class="icon-play"></i> <a class="play-link" href="#">Play</a>
+    <a class="play-link" href="#">Play</a>
   </td>
 <% } %>

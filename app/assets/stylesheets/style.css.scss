@@ -15,8 +15,8 @@ $footer-padding: 10px;
 $dark-background-color: #444;
 
 $table-row-heigth: 30px;
-$table-removed-item-color: #ff9;
-$table-added-item-color: #fbf;
+$table-removed-item-color: #ffffaa;
+$table-added-item-color: #ffcfff;
 
 html {
     height: 100%;
@@ -26,6 +26,8 @@ body {
     height: 100%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: $body-background;
+    color: #666;
+    font-size: 16px;
 }
 
 .wrapper {
