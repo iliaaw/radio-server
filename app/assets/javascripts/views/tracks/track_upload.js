@@ -1,6 +1,6 @@
-Kigendan.Views.Upload = Backbone.View.extend({
+Kigendan.Views.TrackUpload = Backbone.View.extend({
 
-    template: JST['tracks/upload'],
+    template: JST['tracks/track_upload'],
 
     tagName: 'tr',
 

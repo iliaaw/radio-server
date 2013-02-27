@@ -17,7 +17,7 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
             add: function(event, data) {
                 var jqXHR = data.submit();
                 $.each(data.files, function(index, file) {
-                    var view = new Kigendan.Views.Upload({ 
+                    var view = new Kigendan.Views.TrackUpload({ 
                         file: file, 
                         progress: 0,
                         jqXHR: jqXHR
