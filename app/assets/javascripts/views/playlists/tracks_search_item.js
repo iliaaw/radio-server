@@ -4,7 +4,7 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'track-search-item',
+    className: 'tracks-search-item',
 
     events: {
         "click a.add-to-playlist-link": "addToPlaylist"
@@ -16,13 +16,20 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template({ track: this.model }));
+        if (this.model.isAddedToPlaylist) {
+            this.$el.addClass('tracks-search-item-added');
+        }
         return this;
     },
 
     addToPlaylist: function(event) {
         event.preventDefault();
 
-        globalPlaylist.tracks.add(this.model);
-    }
+        window._gPlaylist.tracks.add(this.model);
+        this.model.isAddedToPlaylist = true;
+        this.render();
+    },
+
+
 
 });

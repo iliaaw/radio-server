@@ -31,8 +31,8 @@ Kigendan.Routers.Main = Backbone.Router.extend({
     },
 
     newPlaylist: function() {
-        globalPlaylist = new Kigendan.Models.PlaylistWithTracks();
-        var globalPlaylistView = new Kigendan.Views.PLaylistWithTracks({ model: globalPlaylist });
+        window._gPlaylist = new Kigendan.Models.PlaylistWithTracks();
+        var playlistView = new Kigendan.Views.PLaylistWithTracks({ model: window._gPlaylist });
         var tracksSearch = new Kigendan.Views.TracksSearch();
     },
 

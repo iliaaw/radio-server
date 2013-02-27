@@ -16,6 +16,7 @@ $dark-background-color: #444;
 
 $table-row-heigth: 30px;
 $table-removed-item-color: #ff9;
+$table-added-item-color: #fbf;
 
 html {
     height: 100%;
@@ -202,6 +203,14 @@ body {
 .tracks-search-table th {
     text-align: left;
     font-weight: bold;
+}
+
+.tracks-search-item {
+
+}
+
+.tracks-search-item-added {
+    background: $table-added-item-color;
 }
 
 .playlist-tracks-table {
