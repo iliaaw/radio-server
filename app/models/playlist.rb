@@ -15,7 +15,7 @@ class Playlist < ActiveRecord::Base
     tracks = []
     listings.each do |l|
       track = l.track.as_json(:only => [:id, :title, :artist, :album, :genre])
-      tracks << track.merge({ :listing_id => l.id })
+      tracks << track.merge({ :listing_id => l.id }) unless track.nil?
     end
     json.merge(:tracks => tracks)
   end

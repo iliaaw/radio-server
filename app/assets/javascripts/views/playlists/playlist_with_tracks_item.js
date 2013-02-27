@@ -18,6 +18,8 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
         this.$el.html(this.template({ track: this.model }));
         if (this.model.isRemovedFromPlaylist) {
             this.$el.addClass('playlist-track-removed');
+        } else {
+            this.$el.removeClass('playlist-track-removed');
         }
         return this;
     },
@@ -26,6 +28,11 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
         event.preventDefault();
 
         this.model.isRemovedFromPlaylist = true;
+
+        if (this.model.searchItemView) {
+            this.model.isAddedToPlaylist = false;
+            this.model.searchItemView.render();
+        }
 
         if (!(this.playlist.isNew())) {
             this.playlist.save();
