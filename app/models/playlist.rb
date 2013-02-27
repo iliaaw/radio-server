@@ -7,7 +7,6 @@ class Playlist < ActiveRecord::Base
   has_many :tracks, :through => :listings
   accepts_nested_attributes_for :listings, :allow_destroy => true
 
-  alias_method :original_to_json, :to_json
   alias_method :original_as_json, :as_json
 
   def as_json(options)
