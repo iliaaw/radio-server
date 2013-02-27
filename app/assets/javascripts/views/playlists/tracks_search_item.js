@@ -28,8 +28,6 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
         window._gPlaylist.tracks.add(this.model);
         this.model.isAddedToPlaylist = true;
         this.render();
-    },
-
-
+    }
 
 });
