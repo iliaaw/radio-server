@@ -151,8 +151,21 @@ body {
     width: 0%;
 }
 
-.upload-status {
+.upload-status,
+.upload-edit {
     text-align: right;
+}
+
+.upload {
+    border: 1px dotted gray;
+}
+
+.upload-editor {
+
+}
+
+.upload-editor-table {
+    table-layout: fixed;
 }
 
 .playlists-table {

@@ -7,7 +7,8 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
     className: 'upload',
 
     events: {
-        "click a.cancel-link": "cancelUpload"
+        "click a.cancel-link": "cancelUpload",
+        "click a.edit-link": "processUpload"
     },
 
     initialize: function() {
@@ -37,6 +38,14 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
     finishUpload: function() {
         this.status = this.uploadStatus.finished;
         this.render();
+    },
+
+    processUpload: function(event) {
+        event.preventDefault();
+
+        var track = new Kigendan.Models.Track();
+        var uploadEditor = new Kigendan.Views.TrackEditor({ model: track });
+        uploadEditor.render();
     }
 
 });

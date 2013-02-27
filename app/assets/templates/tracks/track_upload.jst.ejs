@@ -9,9 +9,19 @@
 <td class="upload-status">
   <% if (upload.status == upload.uploadStatus.running) { %>
     <a class="cancel-link" href="#">Cancel</a>
-  <% } else if (upload.status == upload.uploadStatus.finished ) { %>
+  <% } %>
+
+  <% if (upload.status == upload.uploadStatus.finished ) { %>
     <span>Finished</span>
-  <% } else if (upload.status == upload.uploadStatus.cancelled) { %>
+  <% } %>
+
+  <% if (upload.status == upload.uploadStatus.cancelled) { %>
     <span>Cancelled</span>
+  <% } %>
+</td>
+
+<td class="upload-edit">
+  <% if (upload.status == upload.uploadStatus.finished ) { %>
+    <a class="edit-link" href="#">Edit</a>
   <% } %>
 </td>
