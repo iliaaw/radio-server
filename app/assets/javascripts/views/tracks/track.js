@@ -14,11 +14,14 @@ Kigendan.Views.Track = Backbone.View.extend({
 
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
-        this.listenTo(this.model, 'destroy', this.remove);
+        this.listenTo(this.model, 'destroy', this.markAsRemoved);
     },
 
     render: function() {
-        $(this.el).html(this.template({ track: this.model }));
+        this.$el.html(this.template({ track: this.model }));
+        if (this.model.isRemoved) {
+            this.$el.addClass('track-removed');
+        }
         return this;
     },
 
@@ -71,6 +74,11 @@ Kigendan.Views.Track = Backbone.View.extend({
         event.preventDefault();
 
         this.model.destroy();
+    },
+
+    markAsRemoved: function(event) {
+        this.model.isRemoved = true;
+        this.render();
     }
 
 });

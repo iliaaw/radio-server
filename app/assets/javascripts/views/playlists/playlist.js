@@ -15,11 +15,14 @@ Kigendan.Views.Playlist = Backbone.View.extend({
 
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
-        this.listenTo(this.model, 'destroy', this.remove);
+        this.listenTo(this.model, 'destroy', this.markAsRemoved);
     },
 
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
+        if (this.model.isRemoved) {
+            this.$el.addClass('playlist-removed');
+        }
         return this;
     },
 
@@ -66,6 +69,11 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         event.preventDefault();
 
         this.model.destroy();
+    },
+
+    markAsRemoved: function(event) {
+        this.model.isRemoved = true;
+        this.render();
     },
 
     play: function(event) {

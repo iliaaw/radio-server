@@ -13,7 +13,9 @@ $footer-width: 960px;
 $footer-padding: 10px;
 
 $dark-background-color: #444;
+
 $table-row-heigth: 30px;
+$table-removed-item-color: #ff9;
 
 html {
     height: 100%;
@@ -106,6 +108,10 @@ body {
 
 }
 
+.track-removed {
+    background: $table-removed-item-color;
+}
+
 .track .track-metadata {
     display: inline;
 }
@@ -162,6 +168,10 @@ body {
 
 .playlist {
 
+}
+
+.playlist-removed {
+    background: $table-removed-item-color;
 }
 
 .playlist .playlist-metadata {
