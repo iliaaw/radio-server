@@ -9,7 +9,7 @@ Kigendan.Views.TrackEditor = Backbone.View.extend({
     },
 
     initialize: function() {
-        
+        this.$el.show();
     },
 
     render: function() {
@@ -26,6 +26,8 @@ Kigendan.Views.TrackEditor = Backbone.View.extend({
             album: this.$el.find(".upload-editor-input-album").val(),
             genre: this.$el.find(".upload-editor-input-genre").val()
         });
+
+        this.$el.hide();
     }
 
 });
