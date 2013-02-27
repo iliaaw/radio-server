@@ -35,17 +35,23 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
         this.render();
     },
 
-    finishUpload: function() {
+    finishUpload: function(options) {
         this.status = this.uploadStatus.finished;
+
+        if (options.model) {
+            this.model = new Kigendan.Models.Track(options.model);
+        }
+
         this.render();
     },
 
     processUpload: function(event) {
         event.preventDefault();
 
-        var track = new Kigendan.Models.Track();
-        var uploadEditor = new Kigendan.Views.TrackEditor({ model: track });
-        uploadEditor.render();
+        if (this.status == this.uploadStatus.finished) {
+            var uploadEditor = new Kigendan.Views.TrackEditor({ model: this.model });
+            uploadEditor.render();
+        }
     }
 
 });

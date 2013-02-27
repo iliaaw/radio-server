@@ -39,8 +39,7 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
             done: function(event, data) {
                 $.each(data.files, function(index, file) {
                     var view = that.views[file.name];
-                    view.finishUpload();
-                    // TODO retrieve track model's data from server and pass it to the view
+                    view.finishUpload({ model: data.result });
                 });
             }
 
