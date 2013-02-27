@@ -1,5 +1,5 @@
 <%= form_for @playlist, :html => { :class => "playlist-form" } do |form| %>
-  <%= form.text_field :title, :placeholder => "Title" %>
+  <%= form.text_field :title, :placeholder => "Title", :autocomplete => "off" %>
 
   <%= form.submit "Done" %>
 <% end %>
@@ -7,7 +7,7 @@
 <div class="playlist-tracks-wrapper"></div>
 
 <%= form_tag tracks_path, :method => :get, :class => "tracks-search-form" do %>
-  <%= text_field_tag :query, "", :placeholder => "Title" %>
+  <%= text_field_tag :query, "", :placeholder => "Title", :autocomplete => "off" %>
     
   <%= submit_tag "Search by" %>
 
