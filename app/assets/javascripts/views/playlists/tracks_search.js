@@ -24,6 +24,7 @@ Kigendan.Views.TracksSearch = Backbone.View.extend({
             var view = new Kigendan.Views.TracksSearchItem({ model: value });
             value.searchItemView = view;
             $('.tracks-search-table').append(view.render().$el);
+            console.log(value)
         });
         return this;
     }

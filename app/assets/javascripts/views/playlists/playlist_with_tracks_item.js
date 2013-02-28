@@ -4,10 +4,10 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'playlist-track',
+    className: 'playlist-tracks-table-item',
 
     events: {
-        'click a.remove-from-playlist-link': 'removeFromPlaylist'
+        'click a.remove-link': 'removeFromPlaylist'
     },
 
     initialize: function(options) {
@@ -17,9 +17,9 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ track: this.model }));
         if (this.model.isRemovedFromPlaylist) {
-            this.$el.addClass('playlist-track-removed');
+            this.$el.addClass('playlist-tracks-table-item-removed');
         } else {
-            this.$el.removeClass('playlist-track-removed');
+            this.$el.removeClass('playlist-tracks-table-item-removed');
         }
         return this;
     },

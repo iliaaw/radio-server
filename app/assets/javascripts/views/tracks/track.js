@@ -4,12 +4,12 @@ Kigendan.Views.Track = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'track',
+    className: 'tracks-table-item',
 
     events: {
-        "click a.edit-link": "startEdit",
-        "click a.save-link": "finishEdit",
-        "click a.remove-link": "removeModel"
+        'click a.edit-link': 'startEdit',
+        'click a.save-link': 'finishEdit',
+        'click a.remove-link': 'removeModel'
     },
 
     initialize: function() {
@@ -20,7 +20,7 @@ Kigendan.Views.Track = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ track: this.model }));
         if (this.model.isRemoved) {
-            this.$el.addClass('track-removed');
+            this.$el.addClass('tracks-table-item-removed');
         }
         return this;
     },
@@ -33,27 +33,27 @@ Kigendan.Views.Track = Backbone.View.extend({
     },
 
     showInputWidgets: function(view) {
-        view.$el.addClass("track-editing");
+        view.$el.addClass('tracks-table-item-editing');
 
-        var link = view.$el.find(".edit-link").first()
-        link.text("Save");
-        link.removeClass("edit-link");
-        link.addClass("save-link");
+        var link = view.$el.find('.edit-link').first()
+        link.text('Save');
+        link.removeClass('edit-link');
+        link.addClass('save-link');
 
-        view.$el.find(".track-input-title").val(view.model.get('title'))
-        view.$el.find(".track-input-artist").val(view.model.get('artist'))
-        view.$el.find(".track-input-album").val(view.model.get('album'))
-        view.$el.find(".track-input-genre").val(view.model.get('genre'))
-        view.$el.find(".track-input").first().focus();
+        view.$el.find('.tracks-table-item-input-title').val(view.model.get('title'))
+        view.$el.find('.tracks-table-item-input-artist').val(view.model.get('artist'))
+        view.$el.find('.tracks-table-item-input-album').val(view.model.get('album'))
+        view.$el.find('.tracks-table-item-input-genre').val(view.model.get('genre'))
+        view.$el.find('.tracks-table-item-input').first().focus();
     },
 
     hideInputWidgets: function() {
-        $(".track-editing").removeClass("track-editing");
+        $('.tracks-table-item-editing').removeClass('tracks-table-item-editing');
 
-        $.each($(".save-link"), function() {
-            $(this).text("Edit")
-            $(this).removeClass("save-link")
-            $(this).addClass("edit-link")
+        $.each($('.save-link'), function() {
+            $(this).text('Edit')
+            $(this).removeClass('save-link')
+            $(this).addClass('edit-link')
         })
     },
 
@@ -63,10 +63,10 @@ Kigendan.Views.Track = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title: this.$el.find(".track-input-title").val(), 
-            artist: this.$el.find(".track-input-artist").val(),
-            album: this.$el.find(".track-input-album").val(),
-            genre: this.$el.find(".track-input-genre").val()
+            title:  this.$el.find('.tracks-table-item-input-title').val(), 
+            artist: this.$el.find('.tracks-table-item-input-artist').val(),
+            album:  this.$el.find('.tracks-table-item-input-album').val(),
+            genre:  this.$el.find('.tracks-table-item-input-genre').val()
         });
     },
 

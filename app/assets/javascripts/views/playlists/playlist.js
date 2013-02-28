@@ -4,7 +4,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'playlist',
+    className: 'playlists-table-item',
 
     events: {
         "click a.edit-link": "startEdit",
@@ -21,7 +21,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
         if (this.model.isRemoved) {
-            this.$el.addClass('playlist-removed');
+            this.$el.addClass('playlists-table-item-removed');
         }
         return this;
     },
@@ -34,19 +34,19 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     },
 
     showInputWidgets: function(view) {
-        view.$el.addClass("playlist-editing");
+        view.$el.addClass("playlists-table-item-editing");
 
         var link = view.$el.find(".edit-link").first()
         link.text("Save");
         link.removeClass("edit-link");
         link.addClass("save-link");
 
-        view.$el.find(".playlist-input-title").val(view.model.get('title'))
-        view.$el.find(".playlist-input").first().focus();
+        view.$el.find(".playlists-table-item-input-title").val(view.model.get('title'))
+        view.$el.find(".playlists-table-item-input").first().focus();
     },
 
     hideInputWidgets: function() {
-        $(".playlist-editing").removeClass("playlist-editing");
+        $(".playlists-table-item-editing").removeClass("playlists-table-item-editing");
 
         $.each($(".save-link"), function() {
             $(this).text("Edit")
@@ -61,7 +61,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title: this.$el.find(".playlist-input-title").val()
+            title: this.$el.find(".playlists-table-item-input-title").val()
         });
     },
 

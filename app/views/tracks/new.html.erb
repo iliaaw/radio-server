@@ -1,9 +1,15 @@
 <div class="uploader">
-  <%= form_for @track do |form| %>
+  <%= form_for @track, :html => { :class => "uploader-form" } do |form| %>
     <%= form.file_field :upload, :multiple => true, :name => "track[upload]" %>
   <% end %>
 
-  <table class="uploads-table">
+  <table class="uploads-table table">
+    <tr>
+      <th>Filename</th>
+      <th>Progress</th>
+      <th>Status</th>
+      <th>Edit</th>
+    </tr>
   </table>
 
   <div class="upload-editor">

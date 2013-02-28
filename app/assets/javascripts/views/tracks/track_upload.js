@@ -4,7 +4,7 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'upload',
+    className: 'uploads-table-item',
 
     events: {
         "click a.cancel-link": "cancelUpload",
@@ -22,7 +22,7 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template({ file: this.options.file, upload: this }));
-        this.$el.find('.upload-progress-bar').css('width', this.options.progress + '%');
+        this.$el.find('.uploads-table-item-progress-bar').css('width', this.options.progress + '%');
         return this;
     },
 

@@ -1,5 +1,3 @@
-
-
 <% if (playlist.isRemoved) { %>
   <td>
     <span><%= playlist.escape('title') %></span>
@@ -14,8 +12,8 @@
   <td></td>
 <% } else { %>
   <td>
-    <a class="playlist-metadata" href="<%= playlist.url() %>"><%= playlist.escape('title') %></a>
-    <input class="playlist-input playlist-input-title" type="text" />
+    <a class="playlists-table-item-data" href="<%= playlist.url() %>"><%= playlist.escape('title') %></a>
+    <input class="playlists-table-item-input playlists-table-item-input-title" type="text" />
   </td>
 
   <td>

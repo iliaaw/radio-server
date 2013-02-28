@@ -1,12 +1,12 @@
-<td class="upload-filename"><%= file.name %></td>
+<td><%= file.name %></td>
 
 <td>
-  <div class="upload-progress">
-    <div class="upload-progress-bar"></div>
+  <div class="uploads-table-item-progress">
+    <div class="uploads-table-item-progress-bar"></div>
   </div>
 </td>
 
-<td class="upload-status">
+<td>
   <% if (upload.status == upload.uploadStatus.running) { %>
     <a class="cancel-link" href="#">Cancel</a>
   <% } %>
@@ -20,7 +20,7 @@
   <% } %>
 </td>
 
-<td class="upload-edit">
+<td>
   <% if (upload.status == upload.uploadStatus.finished ) { %>
     <a class="edit-link" href="#">Edit</a>
   <% } %>
