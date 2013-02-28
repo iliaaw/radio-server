@@ -37,16 +37,6 @@ body {
     font-size: $body-font-size;
 }
 
-input[type=text] {
-    width: 100%;
-    outline: none;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    font-family: 'pt sans', sans-serif;
-    margin: 0px;
-    padding: 0px;
-}
-
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -128,6 +118,17 @@ input[type=text] {
     color: #669;
     padding: 6px 8px;
     white-space: nowrap;
+    overflow: hidden;
+}
+
+.table input[type=text] {
+    width: 100%;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: 'pt sans', sans-serif;
+    margin: 0px 0px 0px -1px;
+    padding: 0px;
 }
 
 /* tracks */
