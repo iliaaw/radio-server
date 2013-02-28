@@ -77,6 +77,7 @@ Kigendan.Views.Track = Backbone.View.extend({
     },
 
     markAsRemoved: function(event) {
+        this.hideInputWidgets();
         this.model.isRemoved = true;
         this.render();
     }
