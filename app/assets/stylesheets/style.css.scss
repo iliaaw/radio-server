@@ -37,6 +37,16 @@ body {
     font-size: $body-font-size;
 }
 
+input[type=text] {
+    width: 100%;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: 'pt sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -110,12 +120,14 @@ body {
     color: #039;
     padding: 6px 8px;
     border-bottom: 2px solid #6678b1;
+    white-space: nowrap;
 }
 
 .table td {
     border-bottom: 1px solid #ccc;
     color: #669;
     padding: 6px 8px;
+    white-space: nowrap;
 }
 
 /* tracks */
@@ -251,8 +263,8 @@ body {
 
 /* pagination */
 
-.paginator {
-    border: 1px dashed gray;
+.pagination {
+    margin-top: $container-margin;
 }
 
 .pagination-prev-first,
@@ -271,4 +283,29 @@ body {
 .pagination-last {
     display: block;
     text-align: left;
+}
+
+.pagination-pages {
+    margin: 0px 10px;
+}
+
+.pagination-page {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 20px;
+    background: #999;
+    color: #fff;
+    font-size: 14px;
+}
+
+.pagination-current {
+    background: #66f;
+}
+
+.pagination-page a {
+    text-decoration: none !important;
+    color: #fff;
 }
