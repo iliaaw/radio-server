@@ -12,7 +12,7 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
         var that = this;
         this.$el.fileupload({
 
-            dataType: "json",
+            dataType: 'json',
 
             add: function(event, data) {
                 var jqXHR = data.submit();
@@ -22,7 +22,7 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
                         progress: 0,
                         jqXHR: jqXHR
                     });
-                    $(".uploads-table").append(view.render().$el);
+                    $('.uploads-table').append(view.render().$el);
                     that.views[file.name] = view;
                 });
             },
@@ -41,6 +41,25 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
                     var view = that.views[file.name];
                     view.finishUpload({ model: data.result });
                 });
+            },
+
+            fail: function(event, data) {
+                console.log(data)
+
+                if (data.textStatus == 'error') {
+                    var error = $.parseJSON(data.jqXHR.responseText).error;
+                    $.each(data.files, function(index, file) {
+                        var view = that.views[file.name];
+                        view.finishUpload({ status: 'error' })
+                    });
+                }
+
+                if (data.textStatus == 'abort') {
+                    $.each(data.files, function(index, file) {
+                        var view = that.views[file.name];
+                        view.finishUpload({ status: 'aborted' })
+                    })
+                }
             }
 
         });

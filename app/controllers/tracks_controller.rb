@@ -6,7 +6,6 @@ class TracksController < ApplicationController
     else
       @tracks = Kaminari.paginate_array(Track.all(:order => "id")).page params[:page]
     end
-    @kostyle = %w(a b c)
     respond_to do |format|
       format.html
       format.json { render :json => @tracks }
@@ -22,9 +21,13 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = Track.create(params[:track])
+    @track = Track.new(params[:track])
     respond_to do |format|
-      format.json { render :json => @track }
+      if @track.save
+        format.json { render :json => @track }
+      else
+        format.json { render :json => { :error => @track.errors[:upload] }, :status => :unprocessable_entity }
+      end
     end
   end
 

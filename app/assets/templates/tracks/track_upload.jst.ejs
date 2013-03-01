@@ -7,21 +7,25 @@
 </td>
 
 <td>
-  <% if (upload.status == upload.uploadStatus.running) { %>
+  <% if (upload.status == "running") { %>
     <a class="cancel-link" href="#">Cancel</a>
   <% } %>
 
-  <% if (upload.status == upload.uploadStatus.finished ) { %>
+  <% if (upload.status == "finished") { %>
     <span>Finished</span>
   <% } %>
 
-  <% if (upload.status == upload.uploadStatus.cancelled) { %>
-    <span>Cancelled</span>
+  <% if (upload.status == "aborted") { %>
+    <span>Aborted</span>
+  <% } %>
+
+  <% if (upload.status == "error") { %>
+    <span>Error</span>
   <% } %>
 </td>
 
 <td>
-  <% if (upload.status == upload.uploadStatus.finished ) { %>
+  <% if (upload.status == "finished" ) { %>
     <a class="edit-link" href="#">Edit</a>
   <% } %>
 </td>

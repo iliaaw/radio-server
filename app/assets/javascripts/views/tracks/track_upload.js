@@ -7,17 +7,13 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
     className: 'uploads-table-item',
 
     events: {
-        "click a.cancel-link": "cancelUpload",
-        "click a.edit-link": "processUpload"
+        'click a.cancel-link': 'cancelUpload',
+        'click a.edit-link': 'processUpload'
     },
 
     initialize: function() {
-        this.uploadStatus = {
-            running: 0,
-            finished: 1,
-            cancelled: 2
-        };
-        this.status = this.uploadStatus.running;
+        this.status = 'running';
+        // { 'running', 'finished', 'aborted', 'error' }
     },
 
     render: function() {
@@ -30,17 +26,11 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
         event.preventDefault();
 
         this.options.jqXHR.abort();
-
-        this.status = this.uploadStatus.cancelled;
-        this.render();
     },
 
     finishUpload: function(options) {
-        this.status = this.uploadStatus.finished;
-
-        if (options.model) {
-            this.model = new Kigendan.Models.Track(options.model);
-        }
+        this.model = options.model ? new Kigendan.Models.Track(options.model) : null;
+        this.status = options.status ? options.status : 'finished';
 
         this.render();
     },
@@ -48,7 +38,7 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
     processUpload: function(event) {
         event.preventDefault();
 
-        if (this.status == this.uploadStatus.finished) {
+        if (this.status == 'finished') {
             var uploadEditor = new Kigendan.Views.TrackEditor({ model: this.model });
             uploadEditor.render();
         }
