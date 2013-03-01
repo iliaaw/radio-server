@@ -4,13 +4,13 @@ Kigendan.Views.Playlist = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'playlists-table-item',
+    className: 'table-item',
 
     events: {
-        "click a.edit-link": "startEdit",
-        "click a.save-link": "finishEdit",
-        "click a.remove-link": "removeModel",
-        "click a.play-link": "play"
+        'click a.edit-link': 'startEdit',
+        'click a.save-link': 'finishEdit',
+        'click a.remove-link': 'removeModel',
+        'click a.play-link': 'play'
     },
 
     initialize: function() {
@@ -21,7 +21,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
         if (this.model.isRemoved) {
-            this.$el.addClass('playlists-table-item-removed');
+            this.$el.addClass('table-item-removed');
         }
         return this;
     },
@@ -34,24 +34,24 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     },
 
     showInputWidgets: function(view) {
-        view.$el.addClass("playlists-table-item-editing");
+        view.$el.addClass('table-item-editing');
 
-        var link = view.$el.find(".edit-link").first()
-        link.text("Save");
-        link.removeClass("edit-link");
-        link.addClass("save-link");
+        var link = view.$el.find('.edit-link').first()
+        link.text('Save');
+        link.removeClass('edit-link');
+        link.addClass('save-link');
 
-        view.$el.find(".playlists-table-item-input-title").val(view.model.get('title'))
-        view.$el.find(".playlists-table-item-input").first().focus();
+        view.$el.find('.table-item-input-title').val(view.model.get('title'))
+        view.$el.find('.table-item-input').first().focus();
     },
 
     hideInputWidgets: function() {
-        $(".playlists-table-item-editing").removeClass("playlists-table-item-editing");
+        $('.table-item-editing').removeClass('table-item-editing');
 
-        $.each($(".save-link"), function() {
-            $(this).text("Edit")
-            $(this).removeClass("save-link")
-            $(this).addClass("edit-link")
+        $.each($('.save-link'), function() {
+            $(this).text('Edit')
+            $(this).removeClass('save-link')
+            $(this).addClass('edit-link')
         })
     },
 
@@ -61,7 +61,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title: this.$el.find(".playlists-table-item-input-title").val()
+            title: this.$el.find('.table-item-input-title').val()
         });
     },
 
@@ -82,8 +82,8 @@ Kigendan.Views.Playlist = Backbone.View.extend({
         console.log('add');
 
         $.ajax({
-            url: this.model.url() + "/play",
-            type: "post"
+            url: this.model.url() + '/play',
+            type: 'post'
         });
     }
 

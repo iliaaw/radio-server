@@ -19,6 +19,9 @@ Kigendan.Views.TrackUpload = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ file: this.options.file, upload: this }));
         this.$el.find('.uploads-table-item-progress-bar').css('width', this.options.progress + '%');
+        if (this.status == 'error') {
+            this.$el.addClass('table-item-removed');
+        }
         return this;
     },
 

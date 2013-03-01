@@ -4,7 +4,7 @@ Kigendan.Views.Track = Backbone.View.extend({
 
     tagName: 'tr',
 
-    className: 'tracks-table-item',
+    className: 'table-item',
 
     events: {
         'click a.edit-link': 'startEdit',
@@ -20,7 +20,7 @@ Kigendan.Views.Track = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ track: this.model }));
         if (this.model.isRemoved) {
-            this.$el.addClass('tracks-table-item-removed');
+            this.$el.addClass('table-item-removed');
         }
         return this;
     },
@@ -33,22 +33,22 @@ Kigendan.Views.Track = Backbone.View.extend({
     },
 
     showInputWidgets: function(view) {
-        view.$el.addClass('tracks-table-item-editing');
+        view.$el.addClass('table-item-editing');
 
         var link = view.$el.find('.edit-link').first()
         link.text('Save');
         link.removeClass('edit-link');
         link.addClass('save-link');
 
-        view.$el.find('.tracks-table-item-input-title').val(view.model.get('title'))
-        view.$el.find('.tracks-table-item-input-artist').val(view.model.get('artist'))
-        view.$el.find('.tracks-table-item-input-album').val(view.model.get('album'))
-        view.$el.find('.tracks-table-item-input-genre').val(view.model.get('genre'))
-        view.$el.find('.tracks-table-item-input').first().focus();
+        view.$el.find('.table-item-input-title').val(view.model.get('title'))
+        view.$el.find('.table-item-input-artist').val(view.model.get('artist'))
+        view.$el.find('.table-item-input-album').val(view.model.get('album'))
+        view.$el.find('.table-item-input-genre').val(view.model.get('genre'))
+        view.$el.find('.table-item-input').first().focus();
     },
 
     hideInputWidgets: function() {
-        $('.tracks-table-item-editing').removeClass('tracks-table-item-editing');
+        $('.table-item-editing').removeClass('table-item-editing');
 
         $.each($('.save-link'), function() {
             $(this).text('Edit')
@@ -63,10 +63,10 @@ Kigendan.Views.Track = Backbone.View.extend({
         this.hideInputWidgets();
 
         this.model.save({ 
-            title:  this.$el.find('.tracks-table-item-input-title').val(), 
-            artist: this.$el.find('.tracks-table-item-input-artist').val(),
-            album:  this.$el.find('.tracks-table-item-input-album').val(),
-            genre:  this.$el.find('.tracks-table-item-input-genre').val()
+            title:  this.$el.find('.table-item-input-title').val(), 
+            artist: this.$el.find('.table-item-input-artist').val(),
+            album:  this.$el.find('.table-item-input-album').val(),
+            genre:  this.$el.find('.table-item-input-genre').val()
         });
     },
 

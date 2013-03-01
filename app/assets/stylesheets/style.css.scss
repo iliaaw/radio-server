@@ -22,6 +22,7 @@ $table-width: $container-width - $container-margin * 2;
 $table-row-heigth: 25px;
 $table-removed-item-color: #ffffaa;
 $table-added-item-color: #ffcfff;
+$table-selected-item-color: #fefeff;
 
 $table-font-size: 14px;
 $table-header-font-size: 16px;
@@ -94,6 +95,23 @@ body {
     background: $nav-item-hover-color image-url('triangle.png') no-repeat center bottom;
 }
 
+/* footer */
+
+.footer-push {
+    height: $footer-height;
+}
+
+.footer-wrapper {
+    background: image-url('footer.png');
+}
+
+.footer {
+    height: $footer-height - 2 * $footer-padding;
+    width: $footer-width - 2 * $footer-padding;
+    padding: $footer-padding;
+    margin: 0px auto;
+}
+
 /* tables */
 
 .table {
@@ -131,34 +149,32 @@ body {
     padding: 0px;
 }
 
-/* tracks */
-
-.tracks-table {
-
+.table-item .table-item-data {
+    display: inline;
 }
 
-.tracks-table-item {
-
+.table-item .table-item-input {
+    display: none;
 }
 
-.tracks-table-item-removed {
+.table-item-editing .table-item-data {
+    display: none;
+}
+
+.table-item-editing .table-item-input {
+    display: inline;
+}
+
+.table-item-removed {
     background: $table-removed-item-color;
 }
 
-.tracks-table-item-data {
-    display: inline;
+.table-item-added {
+    background: $table-added-item-color;
 }
 
-.tracks-table-item-input {
-    display: none;
-}
-
-.tracks-table-item-editing .tracks-table-item-data {
-    display: none;
-}
-
-.tracks-table-item-editing .tracks-table-item-input {
-    display: inline;
+.table-item-selected {
+    background: $table-selected-item-color;
 }
 
 /* uploads */
@@ -189,77 +205,6 @@ body {
 .upload-editor-table {
     table-layout: fixed;
     width: $table-width;
-}
-
-/* playlists */
-
-.playlists-table {
-
-}
-
-.playlists-table-item {
-
-}
-
-.playlists-table-item-removed {
-    background: $table-removed-item-color;
-}
-
-.playlists-table-item .playlists-table-item-data {
-    display: inline;
-}
-
-.playlists-table-item .playlists-table-item-input {
-    display: none;
-}
-
-.playlists-table-item-editing .playlists-table-item-data {
-    display: none;
-}
-
-.playlists-table-item-editing .playlists-table-item-input {
-    display: inline;
-}
-
-/* tracks search */
-
-.tracks-search-table {
-    
-}
-
-.tracks-search-table-item {
-
-}
-
-.tracks-search-table-item-added {
-    background: $table-added-item-color;
-}
-
-/* playlist tracks */
-
-.playlist-tracks-table {
-
-}
-
-.playlist-tracks-table-item-removed {
-    background: $table-removed-item-color;
-}
-
-/* footer */
-
-.footer-push {
-    height: $footer-height;
-}
-
-.footer-wrapper {
-    background: image-url('footer.png');
-}
-
-.footer {
-    height: $footer-height - 2 * $footer-padding;
-    width: $footer-width - 2 * $footer-padding;
-    padding: $footer-padding;
-    margin: 0px auto;
 }
 
 /* pagination */
