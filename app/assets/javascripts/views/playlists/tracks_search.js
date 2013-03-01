@@ -20,12 +20,13 @@ Kigendan.Views.TracksSearch = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template());
-        $.each(this.collection.models, function(index, value) {
-            var view = new Kigendan.Views.TracksSearchItem({ model: value });
-            value.searchItemView = view;
-            $('.tracks-search-table').append(view.render().$el);
-            console.log(value)
-        });
+        if (this.collection && this.collection.models) {
+            $.each(this.collection.models, function(index, value) {
+                var view = new Kigendan.Views.TracksSearchItem({ model: value });
+                value.searchItemView = view;
+                $('.tracks-search-table').append(view.render().$el);
+            });
+        }
         return this;
     }
 
