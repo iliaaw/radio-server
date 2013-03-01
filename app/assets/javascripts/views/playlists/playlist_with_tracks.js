@@ -12,17 +12,30 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
         $('.playlist-form').submit(function(event) {
             event.preventDefault();
 
-            that.model.save({
-                title: $('#playlist_title').val()
-            }, {
-                success: function(model, response, options) {
+            var attrs = {};
+            var options = {};
+
+            if ($('#playlist_title').length) {
+                attrs.title = $('#playlist_title').val();
+
+                options.success = function(model, response, options) {
                     window.location = model.url();
-                },
-                error: function(model, xhr, options) {
-                    // TODO show error message
-                }
-            });
+                };
+            }
+                
+            options.error = function(model, xhr, options) {
+                // TODO show error message
+            };
+
+            that.model.save(attrs, options);
         });
+
+        $('.spoiler-link').click(function(event) {
+            event.preventDefault();
+
+            $('.spoiler').show();
+            $('.spoiler-link').hide();
+        })
     },
 
     render: function() {
