@@ -42,7 +42,25 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
     handleAdding: function() {
         if (!(this.model.isNew())) {
-            this.model.save();
+            var that = this;
+            this.model.save({}, {
+                success: function(model, response, options) {
+                    console.log(response);
+                    var tracks = response.tracks;
+                    var listing_id = -1;
+                    $.each(tracks, function(index, track) {
+                        if (track.listing_id > listing_id) {
+                            listing_id = track.listing_id;
+                        }
+                    });
+                    //console.log(listing_id);
+                    $.each(that.model.tracks.models, function(index, model) {
+                        if (!(model.has('listing_id'))) {
+                            model.set('listing_id', listing_id);
+                        }
+                    });
+                }
+            });
         }
 
         this.render();
@@ -50,7 +68,16 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
     handleRemoval: function() {
         if (!(this.model.isNew())) {
-            this.model.save();
+            var that = this;
+            this.model.save({}, {
+                success: function(model, response, options) {
+                    $.each(that.model.tracks.models, function(index, model) {
+                        if (model.isRemovedFromPlaylist) {
+                            model.notExists = true;
+                        }
+                    });
+                }
+            });
         }
     },
 

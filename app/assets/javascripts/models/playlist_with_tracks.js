@@ -1,21 +1,22 @@
 Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
 
-    initialize: function(attrs) {
+    initialize: function() {
         var tracks;
-        if (typeof attrs != 'undefined') {
-            tracks = attrs.hasOwnProperty('tracks') ? attrs.tracks : {};
+        if (this.has('tracks')) {
+            tracks = this.get('tracks')
+            this.unset('tracks', { silent: true });
         }
         this.tracks = new Kigendan.Collections.Tracks(tracks);
     },
 
     listingsAttributes: function() {
-        return this.tracks.map(function(value) {
-            return {
-                id: value.get('listing_id'),
-                track_id: value.get('id'),
-                _destroy: value.isRemovedFromPlaylist
-            }
-        });
+        return _.compact(this.tracks.map(function(track) {
+            return (track.notExists ? undefined : {
+                id: track.get('listing_id'),
+                track_id: track.get('id'),
+                _destroy: track.isRemovedFromPlaylist
+            });
+        }));
     },
 
     toJSON: function() {
@@ -23,7 +24,6 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
         if (this.tracks.length > 0) {
             json = _.extend(json, { listings_attributes : this.listingsAttributes() })
         }
-        console.log(json)
         return json;
     },
 
