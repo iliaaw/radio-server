@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
 
 $body-background: #eee;
-$body-font-size: 16px;
+$body-font-size: 14px;
+$body-font-family: 'pt sans', verdana, sans-serif;
 
 $container-margin: 45px;
 $container-width: 960px;
@@ -23,7 +24,6 @@ $table-row-heigth: 25px;
 $table-removed-item-color: #ffffaa;
 $table-added-item-color: #ffcfff;
 $table-selected-item-color: #fefeff;
-
 $table-font-size: 14px;
 $table-header-font-size: 16px;
 
@@ -33,7 +33,7 @@ html {
 
 body {
     height: 100%;
-    font-family: 'pt sans', sans-serif;
+    font-family: $body-font-family;
     background: $body-background;
     font-size: $body-font-size;
 }
@@ -144,7 +144,7 @@ body {
     outline: none;
     border: 1px solid #ccc;
     font-size: 14px;
-    font-family: 'pt sans', sans-serif;
+    font-family: $body-font-family;
     margin: 0px 0px 0px -1px;
     padding: 0px;
 }
@@ -223,16 +223,19 @@ body {
 .pagination-first {
     display: block;
     text-align: right;
+    line-height: 1.5;
 }
 
 .pagination-next,
 .pagination-last {
     display: block;
     text-align: left;
+    line-height: 1.5;
 }
 
 .pagination-pages {
     margin: 0px 10px;
+    
 }
 
 .pagination-page {
