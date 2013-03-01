@@ -15,7 +15,10 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
     },
 
     toJSON: function() {
-        var json = _.extend(_.clone(this.attributes), { listings_attributes: this.listingsAttributes() });
+        var json = _.clone(this.attributes);
+        if (this.tracks.length > 0) {
+            json = _.extend(json, { listings_attributes : this.listingsAttributes() })
+        }
         return json;
     },
 
