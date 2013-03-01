@@ -32,12 +32,10 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @playlist = Playlist.find(params[:id])
     respond_to do |format|
       format.html 
-      format.json do
-        @playlist = Playlist.find(params[:id])
-        render :json => @playlist
-      end
+      format.json { render :json => @playlist }
     end
   end
 
