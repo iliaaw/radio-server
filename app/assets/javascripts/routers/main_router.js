@@ -21,8 +21,8 @@ Kigendan.Routers.Main = Backbone.Router.extend({
     },
 
     newTrack: function() {
-        var uploader = new Kigendan.Views.TrackUploader();
-        uploader.render();
+        var uploaderView = new Kigendan.Views.TrackUploader();
+        uploaderView.render();
     },
 
     playlistsIndex: function(page) {
@@ -34,18 +34,17 @@ Kigendan.Routers.Main = Backbone.Router.extend({
     newPlaylist: function() {
         window._gPlaylist = new Kigendan.Models.PlaylistWithTracks();
         var playlistView = new Kigendan.Views.PLaylistWithTracks({ model: window._gPlaylist });
-        var tracksSearch = new Kigendan.Views.TracksSearch();
+        var tracksSearchView = new Kigendan.Views.TracksSearch();
         playlistView.render();
-        tracksSearch.render();
+        tracksSearchView.render();
     },
 
     showPlaylist: function(playlistId) {
         window._gPlaylist = new Kigendan.Models.PlaylistWithTracks(window._gPlaylistData);
-        window._gPlaylist.tracks.reset(window._gPlaylistData.tracks)
         var playlistView = new Kigendan.Views.PLaylistWithTracks({ model: window._gPlaylist });
-        var tracksSearch = new Kigendan.Views.TracksSearch();
+        var tracksSearchView = new Kigendan.Views.TracksSearch();
         playlistView.render();
-        tracksSearch.render();
+        tracksSearchView.render();
     }
 
 });

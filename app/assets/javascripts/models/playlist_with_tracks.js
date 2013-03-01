@@ -1,7 +1,11 @@
 Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
 
-    initialize: function() {
-        this.tracks = new Kigendan.Collections.Tracks();
+    initialize: function(attrs) {
+        var tracks;
+        if (typeof attrs != 'undefined') {
+            tracks = attrs.hasOwnProperty('tracks') ? attrs.tracks : {};
+        }
+        this.tracks = new Kigendan.Collections.Tracks(tracks);
     },
 
     listingsAttributes: function() {
@@ -19,15 +23,8 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
         if (this.tracks.length > 0) {
             json = _.extend(json, { listings_attributes : this.listingsAttributes() })
         }
+        console.log(json)
         return json;
-    },
-
-    parse: function(response) {
-        if (response.tracks) {
-            this.tracks = new Kigendan.Collections.Tracks(response.tracks);
-            delete response.tracks;
-        }
-        return response;
     },
 
     urlRoot: function() {

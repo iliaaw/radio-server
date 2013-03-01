@@ -10,17 +10,18 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
         'click a.remove-link': 'removeFromPlaylist'
     },
 
-    initialize: function(options) {
-        this.playlist = options.playlist;
+    initialize: function() {
     },
 
     render: function() {
         this.$el.html(this.template({ track: this.model }));
+
         if (this.model.isRemovedFromPlaylist) {
             this.$el.addClass('table-item-removed');
         } else {
             this.$el.removeClass('table-item-removed');
         }
+        
         return this;
     },
 
@@ -34,9 +35,7 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
             this.model.searchItemView.render();
         }
 
-        if (!(this.playlist.isNew())) {
-            this.playlist.save();
-        }
+        window._gPlaylist.tracks.trigger('remove');
 
         this.render();
     }

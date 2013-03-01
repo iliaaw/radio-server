@@ -16,16 +16,20 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template({ track: this.model }));
+
         if (this.model.isAddedToPlaylist) {
             this.$el.addClass('table-item-added');
         } else {
             this.$el.removeClass('table-item-added');
         }
+        
         return this;
     },
 
     addToPlaylist: function(event) {
         event.preventDefault();
+        
+        this.model.isAddedToPlaylist = true;
 
         if (this.model.trackView) {
             this.model.isRemovedFromPlaylist = false;
@@ -33,7 +37,6 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
         }
 
         window._gPlaylist.tracks.add(this.model);
-        this.model.isAddedToPlaylist = true;
 
         this.render();
     }

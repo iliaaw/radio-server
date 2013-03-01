@@ -4,6 +4,7 @@ Kigendan.Models.Track = Backbone.Model.extend({
         this.isRemoved = false;
         this.isAddedToPlaylist = false;
         this.isRemovedFromPlaylist = false;
+        this.notExists = false;
     },
 
     urlRoot: function() {

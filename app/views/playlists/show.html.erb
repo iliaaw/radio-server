@@ -2,15 +2,15 @@
     window._gPlaylistData = <%= json_escape @playlist.to_json.html_safe %>;
 </script>
 
-<%= form_for @playlist, :html => { :class => "playlist-form" } do |form| %>
-  <%= form.submit "Done" %>
-<% end %>
-
 <div class="playlist-tracks-wrapper"></div>
 
 <a href="#" class="spoiler-link">Add more tracks</a>
 
 <div class="spoiler">
+  <!--<%= form_for @playlist, :html => { :class => "playlist-form" } do |form| %>
+    <%= form.submit "Save" %>
+  <% end %>-->
+
   <%= form_tag tracks_path, :method => :get, :class => "tracks-search-form" do %>
     <%= text_field_tag :query, "", :placeholder => "Title", :autocomplete => "off" %>
       

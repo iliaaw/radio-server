@@ -1,6 +1,8 @@
-<div>
-  <span>Title: <%= playlist.escape('title') %></span>
-</div>
+<% if (!($('#playlist_title').length > 0)) { %>
+  <div class="playlist-title">
+    <span>Title: <%= playlist.escape('title') %></span>
+  </div>
+<% } %>
 
 <table class="playlist-tracks-table table">
   <tr>

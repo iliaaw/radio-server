@@ -176,7 +176,6 @@ body {
 .table-item-selected {
     background: $table-selected-item-color;
 }
-
 /* uploads */
 
 .uploader {
@@ -206,6 +205,17 @@ body {
     table-layout: fixed;
     width: $table-width;
 }
+
+/* playlists */
+
+.playlist-title {
+    margin-bottom: 25px;
+}
+
+.playlist-tracks-table {
+    margin-bottom: 25px;
+}
+
 
 /* pagination */
 
