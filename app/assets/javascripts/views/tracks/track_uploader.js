@@ -44,8 +44,6 @@ Kigendan.Views.TrackUploader = Backbone.View.extend({
             },
 
             fail: function(event, data) {
-                console.log(data)
-
                 if (data.textStatus == 'error') {
                     var error = $.parseJSON(data.jqXHR.responseText).error;
                     $.each(data.files, function(index, file) {

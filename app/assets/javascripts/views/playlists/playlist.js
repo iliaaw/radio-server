@@ -79,8 +79,6 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     play: function(event) {
         event.preventDefault();
 
-        console.log('add');
-
         $.ajax({
             url: this.model.url() + '/play',
             type: 'post'
