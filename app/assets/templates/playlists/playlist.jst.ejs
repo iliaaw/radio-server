@@ -24,7 +24,13 @@
     <a class="remove-link" href="#">Remove</a>
   </td>
 
-  <td>
-    <a class="play-link" href="#">Play</a>
-  </td>
+  <% if (playlist.get('now_playing')) { %>
+    <td>
+      <span>Now playing</span>
+    </td>
+  <% } else { %>
+    <td>
+      <a class="play-link" href="#">Play</a>
+    </td>
+  <% } %>
 <% } %>

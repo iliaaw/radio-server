@@ -61,13 +61,5 @@ class PlaylistsController < ApplicationController
       end
   end
 
-  def play
-    @playlist = Playlist.find(params[:id])
-    @playlist.play
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-  end
-
 end
   

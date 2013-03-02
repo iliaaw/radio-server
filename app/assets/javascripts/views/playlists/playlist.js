@@ -79,10 +79,19 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     play: function(event) {
         event.preventDefault();
 
-        $.ajax({
-            url: this.model.url() + '/play',
-            type: 'post'
-        });
+        var that = this;
+
+        var attrs = {
+            now_playing: true
+        };
+
+        var options = {
+            success: function() { 
+                that.model.collection.fetch();
+            }
+        };
+
+        this.model.save(attrs, options);
     }
 
 });

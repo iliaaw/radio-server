@@ -12,8 +12,6 @@ Kigendan::Application.routes.draw do
             :only => [:index, :new, :create, :show, :update, :destroy, :play],
             :constraints => { :id => /[0-9]+/ } do
     get 'page:page', :action => :index, :on => :collection
-
-    post 'play', :as => 'play', :action => :play, :on => :member
   end
 
 end
