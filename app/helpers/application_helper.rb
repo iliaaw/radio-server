@@ -1,10 +1,13 @@
 module ApplicationHelper
 
-  def nav_link(link_text, link_path)
-    class_name = 'nav-item ' + (current_page?(link_path) ? 'nav-item-active' : '')
+  def nav_link(link_text, controller, action)
+    class_name = 'nav-item'
+    if current_page?(:controller => controller, :action => action)
+      class_name += ' nav-item-active'
+    end
 
     content_tag(:li, :class => class_name) do
-      link_to link_text, link_path
+      link_to link_text, :controller => controller, :action => action
     end
   end
 
