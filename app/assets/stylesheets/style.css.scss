@@ -227,6 +227,9 @@ body {
 .pagination-next-last,
 .pagination-pages {
     display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    *display: inline;
 }
 
 .pagination-prev,
