@@ -4,7 +4,7 @@ class Playlist < ActiveRecord::Base
 
   attr_accessible :description, :title, :listings_attributes, :now_playing
   has_many :listings, :dependent => :destroy
-  has_many :tracks, :through => :listings
+  has_many :tracks, :through => :listings, :order => 'listings.position'
   accepts_nested_attributes_for :listings, :allow_destroy => true
 
   before_save :play_if_needed
@@ -16,7 +16,7 @@ class Playlist < ActiveRecord::Base
     tracks = []
     listings.each do |l|
       track = l.track.as_json(:only => [:id, :title, :artist, :album, :genre])
-      tracks << track.merge({ :listing_id => l.id }) unless track.nil?
+      tracks << track.merge({ :listing_id => l.id, :position => l.position }) unless track.nil?
     end
     json.merge(:tracks => tracks)
   end
@@ -40,6 +40,14 @@ class Playlist < ActiveRecord::Base
       )
       conn.puts("playlist.reload\n")
       conn.waitfor("Match" => /^END$/)
+    end
+  end
+
+  def max_position
+    if self.listings.blank?
+      0
+    else
+      self.listings.last.position
     end
   end
 
