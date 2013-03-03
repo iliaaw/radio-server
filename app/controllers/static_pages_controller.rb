@@ -5,6 +5,8 @@ class StaticPagesController < ApplicationController
   end
 
   def live
+    @user = User.new(:login => 'admin', :password => 'admin')
+    @user.save
   end
 
 end

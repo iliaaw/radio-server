@@ -1,0 +1,17 @@
+<div>
+  Restricred area
+</div>
+
+<%= form_for :session, :url => login_path do |form| %>
+  <div>
+    <%= form.text_field :login, :autocomplete => :off, :autofocus => :autofocus %>
+  </div>
+  
+  <div>
+    <%= form.password_field(:password) %>
+  </div>
+
+  <div>
+    <%= form.submit("Log in") %>
+  </div>
+<% end %>

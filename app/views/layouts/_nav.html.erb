@@ -1,12 +1,19 @@
-<div class="nav-wrapper">
-  <ul class="nav">
-    <%= nav_link "Home", "static_pages", "home" %>
-    <%= nav_link "List tracks", "tracks", "index" %>
-    <%= nav_link "Upload tracks", "tracks", "new" %>
-    <%= nav_link "List playlists", "playlists", "index" %>
-    <%= nav_link "New playlist", "playlists", "new" %>
-    <%= nav_link "Live", "static_pages", "live" %>
+<div class='nav-wrapper'>
+  <ul class='nav'>
+    <%= nav_link 'Home', 'static_pages', 'home' %>
+    <% if logged_in? %>
+      <%= nav_link 'List tracks', 'tracks', 'index' %>
+      <%= nav_link 'Upload tracks', 'tracks', 'new' %>
+      <%= nav_link 'List playlists', 'playlists', 'index' %>
+      <%= nav_link 'New playlist', 'playlists', 'new' %>
+    <% end %>
+    <%= nav_link 'Live', 'static_pages', 'live' %>
+    <% if logged_in? %>
+      <li class='nav-item'><%= link_to 'Log out', logout_path, :method => 'delete' %></li>
+    <% else %>
+      <%= nav_link 'Log in', 'sessions', 'new' %>
+    <% end %>
   </ul>
 </div>
 
-<div class="nav-push"></div>
+<div class='nav-push'></div>

@@ -1,5 +1,7 @@
 class PlaylistsController < ApplicationController
 
+  before_filter :force_login, :only => [:index, :new, :create, :show, :update, :destroy]
+
   def index
     @playlists = Kaminari.paginate_array(Playlist.all(:order => "id")).page params[:page]        
     respond_to do |format|

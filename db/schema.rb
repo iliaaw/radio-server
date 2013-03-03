@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302193145) do
+ActiveRecord::Schema.define(:version => 20130303081001) do
 
   create_table "listings", :force => true do |t|
     t.integer  "playlist_id"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(:version => 20130302193145) do
     t.datetime "updated_at",   :null => false
     t.string   "upload"
     t.string   "upload_token"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

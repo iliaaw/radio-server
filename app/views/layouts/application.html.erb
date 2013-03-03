@@ -8,16 +8,20 @@
   </head>
   
   <body>
-    <div class="wrapper">
-      <%= render "layouts/nav" %>
+    <% if params[:controller] == 'sessions' %>
+      <%= yield %>
+    <% else %>
+      <div class="wrapper">
+        <%= render "layouts/nav" %>
 
-      <div class="container">
-        <%= yield %>
+        <div class="container">
+          <%= yield %>
+        </div>
+
+        <div class="footer-push"></div>
       </div>
 
-      <div class="footer-push"></div>
-    </div>
-
-    <%= render "layouts/footer" %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </body>
 </html>
