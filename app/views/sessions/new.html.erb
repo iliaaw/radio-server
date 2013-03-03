@@ -1,17 +1,15 @@
-<div>
-  Restricred area
+<div class='login-form-wrapper'>
+  <%= form_for :session, :url => login_path, :html => { :class => 'login-form' } do |form| %>
+    <div class='login-form-field'>
+      <%= form.text_field :login, :autocomplete => :off, :autofocus => :autofocus, :placeholder => 'Login' %>
+    </div>
+    
+    <div class='login-form-field'>
+      <%= form.password_field :password, :placeholder => 'Password' %>
+    </div>
+
+    <div>
+      <%= form.submit 'Log in' %>
+    </div>
+  <% end %>
 </div>
-
-<%= form_for :session, :url => login_path do |form| %>
-  <div>
-    <%= form.text_field :login, :autocomplete => :off, :autofocus => :autofocus %>
-  </div>
-  
-  <div>
-    <%= form.password_field(:password) %>
-  </div>
-
-  <div>
-    <%= form.submit("Log in") %>
-  </div>
-<% end %>

@@ -10,8 +10,9 @@ $container-background: #fefefe;
 
 $nav-height: 50px;
 $nav-item-color: #fefefe;
-$nav-item-hover-color: #05958b;
-$nav-item-active-color: #74eceb;
+$nav-item-hover-color: #6678b1;
+$nav-item-active-color: #a4eceb;
+$nav-item-active-hover-color: #ffffff;
 
 $footer-height: 100px;
 $footer-width: 960px;
@@ -26,6 +27,11 @@ $table-added-item-color: #ffcfff;
 $table-selected-item-color: #fefeff;
 $table-font-size: 14px;
 $table-header-font-size: 16px;
+$table-cell-border-color: #ccc;
+$table-header-border-color: #6678b1;
+$table-cell-color: #669;
+$table-header-color: #039;
+
 
 html {
     height: 100%;
@@ -92,6 +98,7 @@ body {
 }
 
 .nav-item-active a:hover {
+    color: $nav-item-active-hover-color;
     background: $nav-item-hover-color image-url('triangle.png') no-repeat center bottom;
 }
 
@@ -125,15 +132,15 @@ body {
 
 .table th {
     font-size: $table-header-font-size;
-    color: #039;
+    color: $table-header-color;
     padding: 6px 8px;
-    border-bottom: 2px solid #6678b1;
+    border-bottom: 2px solid $table-header-border-color;
     white-space: nowrap;
 }
 
 .table td {
-    border-bottom: 1px solid #ccc;
-    color: #669;
+    border-bottom: 1px solid $table-cell-border-color;
+    color: $table-cell-color;
     padding: 6px 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -282,4 +289,42 @@ body {
 
 .status {
     margin-bottom: $container-margin;
+}
+
+/* login page */
+
+$login-form-width: 400px;
+$login-form-height: 240px;
+$login-form-padding: 45px;
+$login-form-field-padding: 5px;
+
+.login-form-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+}
+
+.login-form {
+    position: relative;
+    height: $login-form-height - $login-form-padding * 2;
+    width: $login-form-width - $login-form-padding * 2;
+    margin-left: (-$login-form-width / 2);
+    margin-top: (-$login-form-height / 2);
+    left: 50%;
+    background: #fff;
+    padding: $login-form-padding;
+}
+
+.login-form-field {
+    margin-bottom: 25px;
+}
+
+.login-form input[type=text],
+.login-form input[type=password] {
+    width: $login-form-width - $login-form-padding * 2 - $login-form-field-padding * 2;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: $body-font-family;
+    padding: 0px $login-form-field-padding;
 }
