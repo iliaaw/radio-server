@@ -48,14 +48,17 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
                     var tracks = response.tracks;
                     // the latest listing_id is the maximum one
                     var listing_id = -1;
+                    var position;
                     $.each(tracks, function(index, track) {
                         if (track.listing_id > listing_id) {
                             listing_id = track.listing_id;
+                            position = track.position;
                         }
                     });
                     $.each(that.model.tracks.models, function(index, model) {
                         if (!(model.has('listing_id'))) {
                             model.set('listing_id', listing_id);
+                            model.set('position', position);
                         }
                     });
                 }

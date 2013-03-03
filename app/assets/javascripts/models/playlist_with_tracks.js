@@ -14,6 +14,7 @@ Kigendan.Models.PlaylistWithTracks = Backbone.Model.extend({
             return (track.notExists ? undefined : {
                 id: track.get('listing_id'),
                 track_id: track.get('id'),
+                position: track.get('position'),
                 _destroy: track.isRemovedFromPlaylist
             });
         }));
