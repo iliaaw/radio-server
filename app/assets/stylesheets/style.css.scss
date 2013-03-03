@@ -31,7 +31,7 @@ $table-cell-border-color: #ccc;
 $table-header-border-color: #6678b1;
 $table-cell-color: #669;
 $table-header-color: #039;
-
+$table-cell-padding: 6px 8px;
 
 html {
     height: 100%;
@@ -42,6 +42,14 @@ body {
     font-family: $body-font-family;
     background: $body-background;
     font-size: $body-font-size;
+}
+
+input[type=text],
+input[type=password] {
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: $body-font-family;
 }
 
 .wrapper {
@@ -133,7 +141,7 @@ body {
 .table th {
     font-size: $table-header-font-size;
     color: $table-header-color;
-    padding: 6px 8px;
+    padding: $table-cell-padding;
     border-bottom: 2px solid $table-header-border-color;
     white-space: nowrap;
 }
@@ -141,18 +149,14 @@ body {
 .table td {
     border-bottom: 1px solid $table-cell-border-color;
     color: $table-cell-color;
-    padding: 6px 8px;
+    padding: $table-cell-padding;
     white-space: nowrap;
     overflow: hidden;
 }
 
 .table input[type=text] {
     width: 100%;
-    outline: none;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    font-family: $body-font-family;
-    margin: 0px 0px 0px -1px;
+    margin: 0px;
     padding: 0px;
 }
 
@@ -208,9 +212,19 @@ body {
 
 }
 
+.upload-editor input[type=text] {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
 .upload-editor-table {
     table-layout: fixed;
     width: $table-width;
+}
+
+.upload-editor-table td {
+    padding: $table-cell-padding;
 }
 
 /* playlists */
@@ -255,7 +269,6 @@ body {
 
 .pagination-pages {
     margin: 0px 10px;
-    
 }
 
 .pagination-page {
@@ -322,9 +335,6 @@ $login-form-field-padding: 5px;
 .login-form input[type=text],
 .login-form input[type=password] {
     width: $login-form-width - $login-form-padding * 2 - $login-form-field-padding * 2;
-    outline: none;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    font-family: $body-font-family;
+    margin: 0px;
     padding: 0px $login-form-field-padding;
 }
