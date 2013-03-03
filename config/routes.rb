@@ -1,6 +1,7 @@
 Kigendan::Application.routes.draw do
 
-  root :to => 'static_pages#home', :as => 'home'
+  match '/', :to => 'static_pages#home'
+  match '/live', :to => 'static_pages#live'
 
   resources :tracks, 
             :only => [:index, :new, :create, :update, :destroy],

@@ -1,5 +1,7 @@
 <div class="status">
-  <% unless @playlist.nil? %>
+  <% if @playlist.nil? %>
+    Not playing
+  <% else %>
     Now playing: <%= @playlist.title %>
   <% end %>
 </div>
