@@ -7,7 +7,7 @@ module ApplicationHelper
     end
 
     content_tag(:li, :class => class_name) do
-      link_to link_text, :controller => controller, :action => action
+      link_to link_text, :controller => controller, :action => action, :page => nil
     end
   end
 
