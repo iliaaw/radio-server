@@ -188,14 +188,41 @@ input[type=password] {
 .table-item-selected {
     background: $table-selected-item-color;
 }
+
 /* uploads */
 
-.uploader {
-
-}
+$uploader-form-width: 150px;
+$uploader-form-heigth: 30px;
 
 .uploader-form {
+    text-align: center; 
+    overflow: hidden; 
+    width: 150px; 
+    height: 30px;
+}
 
+.uploader-form:hover .uploader-button {
+    background: red;
+}
+
+.uploader-button { 
+    background: $nav-item-hover-color;
+    height: $uploader-form-heigth;
+    line-height: $uploader-form-heigth;
+    width: $uploader-form-width;
+}
+ 
+.uploader-file-field {
+    margin-top: (-$uploader-form-heigth); 
+    margin-left: (-$uploader-form-width); 
+    -moz-opacity: 0; 
+    filter: alpha(opacity=0); 
+    opacity: 0; 
+    font-size: $uploader-form-width; 
+}
+
+::-webkit-file-upload-button { 
+    cursor:pointer; 
 }
 
 .uploads-table-item-progress {

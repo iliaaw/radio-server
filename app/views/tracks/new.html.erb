@@ -1,6 +1,8 @@
 <div class="uploader">
   <%= form_for @track, :html => { :class => "uploader-form" } do |form| %>
-    <%= form.file_field :upload, :multiple => true, :name => "track[upload]" %>
+    <div class="uploader-button">Click to add files</div>
+
+    <%= form.file_field :upload, :multiple => true, :name => "track[upload]", :class => "uploader-file-field" %>
   <% end %>
 
   <table class="uploads-table table">
