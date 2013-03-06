@@ -189,6 +189,10 @@ input[type=password] {
     background: $table-selected-item-color;
 }
 
+.table-item-dragged {
+    background: #9cf;
+}
+
 /* uploads */
 
 $uploader-form-width: 150px;

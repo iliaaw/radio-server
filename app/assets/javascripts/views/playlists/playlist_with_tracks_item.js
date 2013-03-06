@@ -11,6 +11,7 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
     },
 
     initialize: function() {
+
     },
 
     render: function() {
@@ -21,6 +22,8 @@ Kigendan.Views.PlaylistWithTracksItem = Backbone.View.extend({
         } else {
             this.$el.removeClass('table-item-removed');
         }
+
+        this.$el.data('id', this.model.id);
         
         return this;
     },

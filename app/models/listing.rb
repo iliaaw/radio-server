@@ -7,7 +7,9 @@ class Listing < ActiveRecord::Base
   before_create :assign_position
 
   def assign_position
-    self.position = self.playlist.max_position + 1;
+    if self.position.nil?
+      self.position = self.playlist.max_position + 1;
+    end
   end
 
 end

@@ -40,24 +40,38 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
         })
     },
 
-    handleAdding: function() {
-        if (!(this.model.isNew())) {
+    handleAdding: function(model, collection, options) {
+        if (this.model.isNew()) { 
+            var maxPosition = _.max(
+                collection.models, 
+                function(track) {
+                    return (track.has('position') ? track.get('position') : 0);
+                }
+            ).get('position');
+            if (typeof maxPosition == 'undefined') {
+                maxPosition = 0;
+            }
+            var attrs = { position: maxPosition + 1 };
+            var options = { silent: true };
+            model.set(attrs, options);
+            this.model.tracks.sort();
+        } else {
             var that = this;
             this.model.save({}, {
                 success: function(model, response, options) {
                     var tracks = response.tracks;
                     // the latest listing_id is the maximum one
-                    var listing_id = -1;
+                    var listingId = -1;
                     var position;
                     $.each(tracks, function(index, track) {
-                        if (track.listing_id > listing_id) {
-                            listing_id = track.listing_id;
+                        if (track.listing_id > listingId) {
+                            listingId = track.listing_id;
                             position = track.position;
                         }
                     });
                     $.each(that.model.tracks.models, function(index, model) {
                         if (!(model.has('listing_id'))) {
-                            model.set('listing_id', listing_id);
+                            model.set('listing_id', listingId);
                             model.set('position', position);
                         }
                     });
@@ -92,6 +106,28 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
             });
             value.trackView = view;
             $('.playlist-tracks-table').append(view.render().$el);
+        });
+
+        var that = this;
+        $('.playlist-tracks-table').tableDnD({
+            onDragClass: 'table-item-dragged',
+            onDrop: function(table, row) {
+                var rows = table.tBodies[0].rows;
+                $.each(rows, function(index, item) {
+                    var id = $(item).data('id');
+                    if (typeof id != 'undefined') {
+                        var attr = { position: index };
+                        var options = { silent: true }
+                        that.model.tracks.get(id).set(attrs, options);
+                    }
+                });
+
+                that.model.tracks.sort();
+
+                if (!(that.model.isNew())) {
+                    that.model.save();
+                }
+            }
         });
 
         return this;
