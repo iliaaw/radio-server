@@ -116,7 +116,7 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
                 $.each(rows, function(index, item) {
                     var id = $(item).data('id');
                     if (typeof id != 'undefined') {
-                        var attr = { position: index };
+                        var attrs = { position: index };
                         var options = { silent: true }
                         that.model.tracks.get(id).set(attrs, options);
                     }
