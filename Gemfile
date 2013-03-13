@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 gem 'pg', '~>0.14.1'
 gem 'unicorn'
 gem 'uglifier', '>= 1.0.3'
