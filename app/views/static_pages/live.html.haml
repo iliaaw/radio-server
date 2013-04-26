@@ -1,3 +1,8 @@
-%object{:height => "100", :width => "100"}
-  %param{:name => "movie", :value => "live.swf"}/
-  %embed{:height => "100", :src => "/live.swf", :width => "100"}
+:javascript
+  var flashVars = {
+      streamer: 'rtmp://localhost:1935/live',
+      file:'mystream'
+  };
+  swfobject.embedSWF('RtmpPublisher.swf', 'rtmp-publisher', '500', '400', '9.0.0', null, flashVars);
+#rtmp-publisher
+  %p Flash not installed
