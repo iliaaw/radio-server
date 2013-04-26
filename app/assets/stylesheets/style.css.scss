@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic);
 
 $body-background: #eee;
 $body-font-size: 14px;
@@ -26,7 +26,7 @@ $table-removed-item-color: #ffffaa;
 $table-added-item-color: #ffcfff;
 $table-selected-item-color: #fefeff;
 $table-font-size: 14px;
-$table-header-font-size: 16px;
+$table-header-font-weight: bold;
 $table-cell-border-color: #ccc;
 $table-header-border-color: #6678b1;
 $table-cell-color: #669;
@@ -140,7 +140,7 @@ input[type=password] {
 }
 
 .table th {
-    font-size: $table-header-font-size;
+    font-weight: $table-header-font-weight;
     color: $table-header-color;
     padding: $table-cell-padding;
     border-bottom: 2px solid $table-header-border-color;
