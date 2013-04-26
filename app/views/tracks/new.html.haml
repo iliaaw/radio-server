@@ -1,0 +1,11 @@
+.uploader
+  = form_for @track, :html => { :class => "uploader-form" } do |form|
+    .uploader-button Click to add files
+    = form.file_field :upload, :multiple => true, :name => "track[upload]", :class => "uploader-file-field"
+  %table.uploads-table.table
+    %tr
+      %th Filename
+      %th Progress
+      %th Status
+      %th Edit
+  .upload-editor

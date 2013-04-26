@@ -1,0 +1,10 @@
+:javascript
+  window._gPlaylistData = #{json_escape @playlist.to_json.html_safe};
+.playlist-tracks-wrapper
+%a.spoiler-link{:href => "#"} Add more tracks
+.spoiler
+  = form_tag tracks_path, :method => :get, :class => "tracks-search-form" do
+    = text_field_tag :query, "", :placeholder => "Title", :autocomplete => "off"
+    = submit_tag "Search by"
+    = select_tag :field, "<option>title</option><option>artist</option><option>album</option><option>genre</option>".html_safe
+  .tracks-search-wrapper

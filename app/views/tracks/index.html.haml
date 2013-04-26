@@ -1,0 +1,4 @@
+:javascript
+  window._gTracksData = #{json_escape @tracks.to_json.html_safe};
+.tracks-wrapper
+= paginate @tracks

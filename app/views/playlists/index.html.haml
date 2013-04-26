@@ -1,0 +1,4 @@
+:javascript
+  window._gPlaylistsData = #{json_escape @playlists.to_json.html_safe};
+.playlists-wrapper
+= paginate @playlists

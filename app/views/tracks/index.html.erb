@@ -1,7 +1,0 @@
-<script type="text/javascript">
-    window._gTracksData = <%= json_escape @tracks.to_json.html_safe %>;
-</script>
-
-<div class="tracks-wrapper"></div>
-
-<%= paginate @tracks %>
