@@ -18,10 +18,8 @@ Kigendan::Application.routes.draw do
     get 'page:page', :action => :index, :on => :collection
   end
 
-  # resource :sessions, :only => [:new, :create, :destroy] do
-  #   get '/login', :action => :new
-  #   post '/login', :action => :create
-  #   delete '/logout', :action => :destroy
-  # end
+  match '/on_publish_done', :to => 'static_pages#on_publish_done'
+  match '/enable_live', :to => 'static_pages#enable_live'
+  match '/disable_live', :to => 'static_pages#disable_live'
 
 end

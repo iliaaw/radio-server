@@ -1,8 +1,11 @@
+.live-control
+  = link_to 'Enable live', '/enable_live', :method => 'post'
+  = link_to 'Disable live', '/disable_live', :method => 'post'
 :javascript
   var flashVars = {
       appName: 'rtmp://localhost:1935/live',
       streamName:'mystream'
   };
-  swfobject.embedSWF('RtmpPublisher.swf', 'rtmp-publisher', '500', '400', '9.0.0', null, flashVars);
+  swfobject.embedSWF('RtmpPublisher.swf', 'rtmp-publisher', '500', '200', '9.0.0', null, flashVars);
 #rtmp-publisher
   %p Flash not installed
