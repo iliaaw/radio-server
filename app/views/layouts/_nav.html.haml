@@ -2,9 +2,9 @@
   %ul.nav
     = nav_link 'Home', 'static_pages', 'home'
     - if logged_in?
-      = nav_link 'List tracks', 'tracks', 'index'
+      = nav_link 'Tracks', 'tracks', 'index'
       = nav_link 'Upload tracks', 'tracks', 'new'
-      = nav_link 'List playlists', 'playlists', 'index'
+      = nav_link 'Playlists', 'playlists', 'index'
       = nav_link 'New playlist', 'playlists', 'new'
     = nav_link 'Live', 'static_pages', 'live'
     - if logged_in?

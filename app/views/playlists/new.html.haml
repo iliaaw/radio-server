@@ -1,3 +1,4 @@
+- provide :title, 'New playlist'
 = form_for @playlist, :html => { :class => 'playlist-form' } do |form|
   = form.text_field :title, :placeholder => 'Title', :autocomplete => 'off'
   = form.submit 'Create'
