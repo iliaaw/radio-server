@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
   
   before_filter :authenticate_user!
+  before_filter :check_access
   
   def index
     if params[:query] and ['title', 'artist', 'album', 'genre'].include? params[:field]
@@ -55,6 +56,11 @@ class TracksController < ApplicationController
         format.html { redirect_to tracks_path }
         format.json { head :no_content }
       end
+  end
+
+  private
+  def check_access
+    render :text => '', :status => :forbidden unless current_user.is_admin? || current_user.is_dj?
   end
   
 end
