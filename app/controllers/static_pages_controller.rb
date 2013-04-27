@@ -9,8 +9,6 @@ class StaticPagesController < ApplicationController
   end
 
   def live
-    @user = User.new(:login => 'admin', :password => 'admin')
-    @user.save
   end
 
   def on_publish_done
