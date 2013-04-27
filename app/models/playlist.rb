@@ -1,5 +1,3 @@
-require 'net/telnet'
-
 class Playlist < ActiveRecord::Base
 
   attr_accessible :description, :title, :listings_attributes, :now_playing
@@ -31,15 +29,7 @@ class Playlist < ActiveRecord::Base
         end
       end
 
-      conn = Net::Telnet.new(
-        'Host' => 'localhost', 
-        'Port' => '1234',
-        'Timeout' => 1,
-        'Telnetmode' => false,
-        'Prompt' => /.*/
-      )
-      conn.puts("files.reload\n")
-      conn.waitfor("Match" => /^END$/)
+      TelnetAdapter.send_command('files.reload')
     end
   end
 

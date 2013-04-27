@@ -7,7 +7,7 @@
         = nav_link 'Upload tracks', '/tracks', 'new'
         = nav_link 'Playlists', '/playlists', 'index'
         = nav_link 'New playlist', '/playlists', 'new'
-      - if current_user.is_broadcaster?
+      - if current_user.is_broadcaster? || current_user.is_guest?
         = nav_link 'Live', '/static_pages', 'live'
       - if current_user.is_admin?
         = nav_link 'Users', '/users', 'index'

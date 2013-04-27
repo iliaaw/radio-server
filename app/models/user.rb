@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def is_guest?
-    guest || admin
+    guest || admin || broadcaster
   end
 
   alias_method :original_as_json, :as_json

@@ -1,9 +1,8 @@
-require 'net/telnet'
-
 class StaticPagesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:home]
-  before_filter :allow_broadcaster, :except => [:home]
+  before_filter :allow_broadcaster, :except => [:home, :live]
+  before_filter :allow_guest, :only => [:live]
 
   def home
     @playlist = Playlist.where(:now_playing => true).first
@@ -13,44 +12,26 @@ class StaticPagesController < ApplicationController
   end
 
   def on_publish_done
-    pid = `pgrep ffmpeg`
-    `sudo kill #{pid}`
-    render :text => 'success'
+    render :text => ''
   end
 
   def enable_live
     begin
-      conn = Net::Telnet.new(
-        'Host' => 'localhost', 
-        'Port' => '1234',
-        'Timeout' => 1,
-        'Telnetmode' => false,
-        'Prompt' => /.*/
-      )
-      conn.puts("live.enable\n")
-      conn.waitfor("Match" => /^END$/)
+      TelnetAdapter.send_command('live.enable')
     rescue
-      render :text => 'error'
+      render :text => '', :status => :internal_server_error
     else
-      render :text => 'success'
+      render :text => ''
     end
   end
 
   def disable_live
     begin
-      conn = Net::Telnet.new(
-        'Host' => 'localhost', 
-        'Port' => '1234',
-        'Timeout' => 1,
-        'Telnetmode' => false,
-        'Prompt' => /.*/
-      )
-      conn.puts("live.disable\n")
-      conn.waitfor("Match" => /^END$/)
+      TelnetAdapter.send_command('live.disable')
     rescue
-      render :text => 'error'
+      render :text => '', :status => :internal_server_error
     else
-      render :text => 'success'
+      render :text => ''
     end
   end
 
