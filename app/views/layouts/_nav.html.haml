@@ -12,12 +12,10 @@
       - if current_user.is_admin?
         = nav_link 'Users', 'users', 'index'
     - if user_signed_in?
-      %li.nav-item 
+      %li.nav-item.nav-item-right
         = link_to 'Log out', destroy_user_session_path, :method => :delete
     - else
       = nav_link 'Home', 'static', 'home'
-      %li.nav-item
-        = link_to 'Log in', new_user_session_path
-      %li.nav-item
-        = link_to 'Sign up', new_user_registration_path
+      = nav_link 'Sign up', 'devise/registrations', 'new', 'nav-item-right'
+      = nav_link 'Log in', 'devise/sessions', 'new', 'nav-item-right'
 .nav-push
