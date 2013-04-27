@@ -9,8 +9,10 @@
     .wrapper
       = render 'layouts/nav'
       .container
-        %p.notice #{notice}
-        %p.alert #{alert}
+        - if notice
+          .notice #{notice}
+        - if alert
+          .alert #{alert}
         = yield
       .footer-push
     = render 'layouts/footer'
