@@ -2,8 +2,7 @@ Kigendan::Application.routes.draw do
 
   devise_for :users, :path => 'auth'
 
-  root :to => 'static_pages#home'
-  match '/live', :to => 'static_pages#live'
+  root :to => 'static#home'
 
   resources :tracks, :only => [:index, :new, :create, :update, :destroy], :constraints => { :id => /[0-9]+/ } do
     get 'page:page', :action => :index, :on => :collection
@@ -16,9 +15,11 @@ Kigendan::Application.routes.draw do
   resources :users, :only => [:index, :update] do
     get 'page:page', :action => :index, :on => :collection
   end
-
-  match '/on_publish_done', :to => 'static_pages#on_publish_done'
-  match '/enable_live', :to => 'static_pages#enable_live'
-  match '/disable_live', :to => 'static_pages#disable_live'
+  
+  match '/', :to => 'static#home'
+  match '/live', :to => 'static#live'
+  match '/on_publish_done', :to => 'static#on_publish_done'
+  match '/enable_live', :to => 'static#enable_live'
+  match '/disable_live', :to => 'static#disable_live'
 
 end

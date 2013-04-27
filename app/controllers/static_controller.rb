@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicationController
+class StaticController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:home]
   before_filter :allow_broadcaster, :except => [:home, :live]

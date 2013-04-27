@@ -1,20 +1,21 @@
 .nav-wrapper
   %ul.nav
-    = nav_link 'Home', '/static_pages', 'home'
     - if user_signed_in?
+      = nav_link 'Home', 'static', 'home'
       - if current_user.is_dj?
-        = nav_link 'Tracks', '/tracks', 'index'
-        = nav_link 'Upload tracks', '/tracks', 'new'
-        = nav_link 'Playlists', '/playlists', 'index'
-        = nav_link 'New playlist', '/playlists', 'new'
-      - if current_user.is_broadcaster? || current_user.is_guest?
-        = nav_link 'Live', '/static_pages', 'live'
+        = nav_link 'Tracks', 'tracks', 'index'
+        = nav_link 'Upload tracks', 'tracks', 'new'
+        = nav_link 'Playlists', 'playlists', 'index'
+        = nav_link 'New playlist', 'playlists', 'new'
+      - if current_user.is_broadcaster?
+        = nav_link 'Live', 'static', 'live'
       - if current_user.is_admin?
-        = nav_link 'Users', '/users', 'index'
+        = nav_link 'Users', 'users', 'index'
     - if user_signed_in?
       %li.nav-item 
         = link_to 'Log out', destroy_user_session_path, :method => :delete
     - else
+      = nav_link 'Home', 'static', 'home'
       %li.nav-item
         = link_to 'Log in', new_user_session_path
       %li.nav-item
