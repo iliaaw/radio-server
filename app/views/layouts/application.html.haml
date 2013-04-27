@@ -6,14 +6,11 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    %p.notice #{notice}
-    %p.alert #{alert}
-    - if params[:controller] == 'sessions'
-      = yield
-    - else
-      .wrapper
-        = render 'layouts/nav'
-        .container
-          = yield
-        .footer-push
-      = render 'layouts/footer'
+    .wrapper
+      = render 'layouts/nav'
+      .container
+        %p.notice #{notice}
+        %p.alert #{alert}
+        = yield
+      .footer-push
+    = render 'layouts/footer'

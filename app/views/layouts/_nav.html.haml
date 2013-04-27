@@ -1,16 +1,9 @@
 .nav-wrapper
   %ul.nav
     = nav_link 'Home', 'static_pages', 'home'
-    - if logged_in?
-      = nav_link 'Tracks', 'tracks', 'index'
-      = nav_link 'Upload tracks', 'tracks', 'new'
-      = nav_link 'Playlists', 'playlists', 'index'
-      = nav_link 'New playlist', 'playlists', 'new'
+    = nav_link 'Tracks', 'tracks', 'index'
+    = nav_link 'Upload tracks', 'tracks', 'new'
+    = nav_link 'Playlists', 'playlists', 'index'
+    = nav_link 'New playlist', 'playlists', 'new'
     = nav_link 'Live', 'static_pages', 'live'
-    - if logged_in?
-      %li.nav-item
-        = link_to 'Log out', logout_path, :method => 'delete'
-    - else
-      = nav_link 'Log in', 'sessions', 'new'
-
 .nav-push

@@ -2,8 +2,6 @@ require 'net/telnet'
 
 class StaticPagesController < ApplicationController
 
-  before_filter :force_login, :only => [:on_publish_done, :enable_live, :disable_live]
-
   def home
     @playlist = Playlist.where(:now_playing => true).first
   end
