@@ -6,6 +6,8 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    %p.notice #{notice}
+    %p.alert #{alert}
     - if params[:controller] == 'sessions'
       = yield
     - else
