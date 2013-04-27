@@ -1,5 +1,7 @@
 Kigendan::Application.routes.draw do
 
+  devise_for :users, :path => 'auth'
+
   root :to => 'static_pages#home'
   match '/live', :to => 'static_pages#live'
 

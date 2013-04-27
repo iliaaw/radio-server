@@ -2,6 +2,8 @@ require 'net/telnet'
 
 class StaticPagesController < ApplicationController
 
+  before_filter :authenticate_user!, :except => [:home]
+
   def home
     @playlist = Playlist.where(:now_playing => true).first
   end

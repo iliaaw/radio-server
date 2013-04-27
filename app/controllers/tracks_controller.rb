@@ -1,5 +1,7 @@
 class TracksController < ApplicationController
   
+  before_filter :authenticate_user!
+  
   def index
     if params[:query] and ['title', 'artist', 'album', 'genre'].include? params[:field]
       @tracks = Track.where("#{params[:field]} LIKE ?", "%#{params[:query]}%")

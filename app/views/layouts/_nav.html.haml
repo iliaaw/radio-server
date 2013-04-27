@@ -1,9 +1,16 @@
 .nav-wrapper
   %ul.nav
-    = nav_link 'Home', 'static_pages', 'home'
-    = nav_link 'Tracks', 'tracks', 'index'
-    = nav_link 'Upload tracks', 'tracks', 'new'
-    = nav_link 'Playlists', 'playlists', 'index'
-    = nav_link 'New playlist', 'playlists', 'new'
-    = nav_link 'Live', 'static_pages', 'live'
+    = nav_link 'Home', '/static_pages', 'home'
+    - if user_signed_in?
+      = nav_link 'Tracks', '/tracks', 'index'
+      = nav_link 'Upload tracks', '/tracks', 'new'
+      = nav_link 'Playlists', '/playlists', 'index'
+      = nav_link 'New playlist', '/playlists', 'new'
+      = nav_link 'Live', '/static_pages', 'live'
+    - if user_signed_in?
+      %li.nav-item 
+        = link_to 'Log out', destroy_user_session_path, :method => :delete
+    - else
+      %li.nav-item
+        = link_to 'Log in', new_user_session_path
 .nav-push
