@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :check_access
+  before_filter :allow_admin
 
   def index
     @users = Kaminari.paginate_array(User.all(:order => "id")).page params[:page]        

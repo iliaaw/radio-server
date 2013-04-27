@@ -3,7 +3,7 @@ require 'net/telnet'
 class StaticPagesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:home]
-  before_filter :check_access, :except => [:home]
+  before_filter :allow_broadcaster, :except => [:home]
 
   def home
     @playlist = Playlist.where(:now_playing => true).first
@@ -52,11 +52,6 @@ class StaticPagesController < ApplicationController
     else
       render :text => 'success'
     end
-  end
-
-  private
-  def check_access
-    render :text => '', :status => :forbidden unless current_user.is_admin? || current_user.is_broadcaster?
   end
 
 end

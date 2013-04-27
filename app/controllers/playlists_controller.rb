@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :check_access
+  before_filter :allow_dj
 
   def index
     @playlists = Kaminari.paginate_array(Playlist.all(:order => "id")).page params[:page]        
@@ -62,11 +62,6 @@ class PlaylistsController < ApplicationController
       format.html { redirect_to playlists_path }
       format.json { head :no_content }
     end
-  end
-
-  private
-  def check_access
-    render :text => '', :status => :forbidden unless current_user.is_admin? || current_user.is_dj?
   end
 
 end

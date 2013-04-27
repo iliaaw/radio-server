@@ -10,15 +10,15 @@ class User < ActiveRecord::Base
   end
 
   def is_dj?
-    dj
+    dj || admin
   end
 
   def is_broadcaster?
-    broadcaster
+    broadcaster || admin
   end
 
   def is_guest?
-    guest
+    guest || admin
   end
 
   alias_method :original_as_json, :as_json

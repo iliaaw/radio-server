@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :check_access
+  before_filter :allow_dj
   
   def index
     if params[:query] and ['title', 'artist', 'album', 'genre'].include? params[:field]

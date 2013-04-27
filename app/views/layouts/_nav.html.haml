@@ -2,11 +2,13 @@
   %ul.nav
     = nav_link 'Home', '/static_pages', 'home'
     - if user_signed_in?
-      = nav_link 'Tracks', '/tracks', 'index'
-      = nav_link 'Upload tracks', '/tracks', 'new'
-      = nav_link 'Playlists', '/playlists', 'index'
-      = nav_link 'New playlist', '/playlists', 'new'
-      = nav_link 'Live', '/static_pages', 'live'
+      - if current_user.is_dj?
+        = nav_link 'Tracks', '/tracks', 'index'
+        = nav_link 'Upload tracks', '/tracks', 'new'
+        = nav_link 'Playlists', '/playlists', 'index'
+        = nav_link 'New playlist', '/playlists', 'new'
+      - if current_user.is_broadcaster?
+        = nav_link 'Live', '/static_pages', 'live'
       - if current_user.is_admin?
         = nav_link 'Users', '/users', 'index'
     - if user_signed_in?
