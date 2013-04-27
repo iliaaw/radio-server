@@ -110,7 +110,7 @@ Kigendan.Views.PLaylistWithTracks = Backbone.View.extend({
 
         var that = this;
         $('.playlist-tracks-table').tableDnD({
-            onDragClass: 'table-item-dragged',
+            onDragClass: 'info',
             onDrop: function(table, row) {
                 var rows = table.tBodies[0].rows;
                 $.each(rows, function(index, item) {

@@ -6,13 +6,10 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    .wrapper
-      = render 'layouts/nav'
-      .container
-        - if notice
-          .notice #{notice}
-        - if alert
-          .alert #{alert}
-        = yield
-      .footer-push
-    = render 'layouts/footer'
+    = render 'layouts/nav'
+    .container
+      - if notice
+        .notice #{notice}
+      - if alert
+        .alert #{alert}
+      = yield

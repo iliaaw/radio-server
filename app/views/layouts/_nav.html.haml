@@ -1,21 +1,22 @@
-.nav-wrapper
-  %ul.nav
-    - if user_signed_in?
-      = nav_link 'Home', 'static', 'home'
-      - if current_user.is_dj?
-        = nav_link 'Tracks', 'tracks', 'index'
-        = nav_link 'Upload tracks', 'tracks', 'new'
-        = nav_link 'Playlists', 'playlists', 'index'
-        = nav_link 'New playlist', 'playlists', 'new'
-      - if current_user.is_broadcaster?
-        = nav_link 'Live', 'static', 'live'
-      - if current_user.is_admin?
-        = nav_link 'Users', 'users', 'index'
-    - if user_signed_in?
-      %li.nav-item.nav-item-right
-        = link_to 'Log out', destroy_user_session_path, :method => :delete
-    - else
-      = nav_link 'Home', 'static', 'home'
-      = nav_link 'Sign up', 'devise/registrations', 'new', 'nav-item-right'
-      = nav_link 'Log in', 'devise/sessions', 'new', 'nav-item-right'
-.nav-push
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %ul.nav
+        = nav_link 'Home', 'static', 'home'
+        - if user_signed_in?
+          - if current_user.is_dj?
+            = nav_link 'Tracks', 'tracks', 'index'
+            = nav_link 'Upload tracks', 'tracks', 'new'
+            = nav_link 'Playlists', 'playlists', 'index'
+            = nav_link 'New playlist', 'playlists', 'new'
+          - if current_user.is_broadcaster?
+            = nav_link 'Live', 'static', 'live'
+          - if current_user.is_admin?
+            = nav_link 'Users', 'users', 'index'
+      %ul.nav.pull-right
+        - if user_signed_in?
+          %li.nav-item
+            = link_to 'Log out', destroy_user_session_path, :method => :delete
+        - else
+          = nav_link 'Log in', 'devise/sessions', 'new'
+          = nav_link 'Sign up', 'devise/registrations', 'new'

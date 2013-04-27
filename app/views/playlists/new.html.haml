@@ -1,10 +1,10 @@
 - provide :title, 'New playlist'
 = form_for @playlist, :html => { :class => 'playlist-form' } do |form|
   = form.text_field :title, :placeholder => 'Title', :autocomplete => 'off'
-  = form.submit 'Create'
+  = form.submit 'Create', :class => 'btn'
 .playlist-tracks-wrapper
-= form_tag tracks_path, :method => :get, :class => 'tracks-search-form' do
+= form_tag tracks_path, :method => :get, :class => 'tracks-search-form form-inline' do
   = text_field_tag :query, '', :placeholder => 'Title', :autocomplete => 'off'
-  = submit_tag 'Search by'
+  = submit_tag 'Search by', :class => 'btn'
   = select_tag :field, '<option>title</option><option>artist</option><option>album</option><option>genre</option>'.html_safe
 .tracks-search-wrapper

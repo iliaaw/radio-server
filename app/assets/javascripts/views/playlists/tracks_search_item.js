@@ -18,9 +18,9 @@ Kigendan.Views.TracksSearchItem = Backbone.View.extend({
         this.$el.html(this.template({ track: this.model }));
 
         if (this.model.isAddedToPlaylist) {
-            this.$el.addClass('table-item-added');
+            this.$el.addClass('success');
         } else {
-            this.$el.removeClass('table-item-added');
+            this.$el.removeClass('success');
         }
         
         return this;

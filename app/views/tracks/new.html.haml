@@ -1,8 +1,10 @@
 - provide :title, 'Upload tracks'
 .uploader
   = form_for @track, :html => { :class => "uploader-form" } do |form|
-    .uploader-button Click to add files
-    = form.file_field :upload, :multiple => true, :name => "track[upload]", :class => "uploader-file-field"
+    %div
+      %spam.uploader-button.btn
+        Upload tracks
+        = form.file_field :upload, :multiple => true, :name => "track[upload]", :class => "uploader-file-field"
   %table.uploads-table.table
     %tr
       %th Filename

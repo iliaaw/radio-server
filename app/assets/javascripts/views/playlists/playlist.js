@@ -21,7 +21,7 @@ Kigendan.Views.Playlist = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({ playlist: this.model }));
         if (this.model.isRemoved) {
-            this.$el.addClass('table-item-removed');
+            this.$el.addClass('error');
         }
         return this;
     },
