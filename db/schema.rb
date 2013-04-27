@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427145542) do
+ActiveRecord::Schema.define(:version => 20130427155530) do
 
   create_table "listings", :force => true do |t|
     t.integer  "playlist_id"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20130427145542) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -54,8 +54,12 @@ ActiveRecord::Schema.define(:version => 20130427145542) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "admin",                  :default => false
+    t.boolean  "dj",                     :default => false
+    t.boolean  "broadcaster",            :default => false
+    t.boolean  "guest",                  :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
