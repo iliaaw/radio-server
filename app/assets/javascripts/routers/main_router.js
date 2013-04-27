@@ -7,7 +7,8 @@ Kigendan.Routers.Main = Backbone.Router.extend({
         'playlists':           'playlistsIndex',
         'playlists/page:page': 'playlistsIndex',
         'playlists/new':       'newPlaylist',
-        'playlists/:id':       'showPlaylist'
+        'playlists/:id':       'showPlaylist',
+        'users':               'usersIndex'
     },
 
     initialize: function() {
@@ -49,6 +50,14 @@ Kigendan.Routers.Main = Backbone.Router.extend({
         var tracksSearchView = new Kigendan.Views.TracksSearch();
         playlistView.render();
         tracksSearchView.render();
+    },
+
+    usersIndex: function(page) {
+        var url = '/users' + (page ? ('/page' + page) : '');
+        var users = new Kigendan.Collections.Users();
+        users.url = url;
+        var usersView = new Kigendan.Views.UsersIndex({ collection: users });
+        users.reset(window._gUsersData ? window._gUsersData : null);
     }
 
 });

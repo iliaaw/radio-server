@@ -1,0 +1,5 @@
+- provide :title, 'Users'
+:javascript
+  window._gUsersData = #{json_escape @users.to_json.html_safe};
+.users-wrapper
+= paginate @users

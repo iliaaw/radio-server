@@ -20,4 +20,10 @@ class User < ActiveRecord::Base
   def is_guest?
     guest
   end
+
+  alias_method :original_as_json, :as_json
+
+  def as_json(options)
+    json = original_as_json(options.merge(:only => [:id, :email, :admin, :dj, :broadcaster, :guest]))
+  end
 end

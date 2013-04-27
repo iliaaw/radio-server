@@ -1,0 +1,19 @@
+<td>
+  <span><%= user.escape('email') %></span>
+</td>
+
+<td>
+  <input type="checkbox" class="admin" <%= user.get('admin') ? 'checked' : '' %>>
+</td>
+
+<td>
+  <input type="checkbox" class="dj" <%= user.get('dj') ? 'checked' : '' %>>
+</td>
+
+<td>
+  <input type="checkbox" class="broadcaster" <%= user.get('broadcaster') ? 'checked' : '' %>>
+</td>
+
+<td>
+  <input type="checkbox" class="guest" <%= user.get('guest') ? 'checked' : '' %>>
+</td>
