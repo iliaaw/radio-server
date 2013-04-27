@@ -38,7 +38,7 @@ class Playlist < ActiveRecord::Base
         'Telnetmode' => false,
         'Prompt' => /.*/
       )
-      conn.puts("playlist.reload\n")
+      conn.puts("files.reload\n")
       conn.waitfor("Match" => /^END$/)
     end
   end
