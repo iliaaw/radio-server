@@ -15,7 +15,7 @@
             = nav_link 'Users', 'users', 'index'
       %ul.nav.pull-right
         - if user_signed_in?
-          = nav_link 'Profile', 'devise/registrations', 'edit'
+          = nav_link 'Edit profile', 'devise/registrations', 'edit'
           %li.nav-item
             = link_to 'Log out', destroy_user_session_path, :method => :delete
         - else
