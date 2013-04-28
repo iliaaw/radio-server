@@ -5,10 +5,12 @@
       %spam.uploader-button.btn
         Upload tracks
         = form.file_field :upload, :multiple => true, :name => "track[upload]", :class => "uploader-file-field"
-  %table.uploads-table.table
-    %tr
-      %th Filename
-      %th Progress
-      %th Status
-      %th Edit
+  %table.uploads-table.table.table-striped
+    %thead
+      %tr
+        %th Filename
+        %th Progress
+        %th Status
+        %th Edit
+    %tbody
   .upload-editor
