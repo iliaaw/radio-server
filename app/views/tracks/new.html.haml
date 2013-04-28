@@ -5,7 +5,7 @@
       %spam.uploader-button.btn
         Upload tracks
         = form.file_field :upload, :multiple => true, :name => "track[upload]", :class => "uploader-file-field"
-  %table.uploads-table.table.table-striped
+  %table.uploads-table.table.table-striped.table-bordered
     %thead
       %tr
         %th Filename
