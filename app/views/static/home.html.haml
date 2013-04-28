@@ -1,8 +1,9 @@
 - provide :title, 'Home'
 .status
-  - if @playlist.nil?
-    Not playing
-  - else
-    Now playing: #{@playlist.title}
+  %h3
+    - if @playlist.nil?
+      Not playing
+    - else
+      Now playing: #{@playlist.title}
 %audio{:controls => 'controls'}
   %source{:src => 'http://localhost:8000/outer.mp3'}
