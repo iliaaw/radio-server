@@ -1,27 +1,27 @@
 <td>
   <span class="table-item-data"><%= track.escape('title') %></span>
-  <input class="table-item-input table-item-input-title input-medium" type="text" />
+  <input class="input-block-level table-item-input table-item-input-title" type="text" />
 </td>
 
 <td>
   <span class="table-item-data"><%= track.escape('artist') %></span>
-  <input class="table-item-input table-item-input-artist input-medium" type="text" />
+  <input class="input-block-level table-item-input table-item-input-artist" type="text" />
 </td>
 
 <td>
   <span class="table-item-data"><%= track.escape('album') %></span>
-  <input class="table-item-input table-item-input-album input-medium" type="text" />
+  <input class="input-block-level table-item-input table-item-input-album" type="text" />
 </td>
 
 <td>
   <span class="table-item-data"><%= track.escape('genre') %></span>
-  <input class="table-item-input table-item-input-genre input-medium" type="text" />
+  <input class="input-block-level table-item-input table-item-input-genre" type="text" />
 </td>
 
 <% if (track.isRemoved) { %>
   <td></td>
 
-  <td>
+  <td>z
     <span>Removed</span>
   </td>
 <% } else { %>
