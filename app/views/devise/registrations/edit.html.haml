@@ -12,7 +12,7 @@
           %span.help-inline #{resource.errors[:email].first}
 
       .control-group{ :class => "#{ 'error' unless resource.errors[:password].blank? }"}
-        = f.label :new_password, :class => 'control-label'
+        = f.label :password, 'New password', :class => 'control-label'
         .controls
           = f.password_field :password, :autocomplete => 'off'
           %span.help-inline #{resource.errors[:password].first}
