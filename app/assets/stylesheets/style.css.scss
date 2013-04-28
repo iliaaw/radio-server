@@ -47,6 +47,16 @@ input[type=text] {
     display: inline;
 }
 
+.table-item-editing td,
+.upload-editor-table td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.table-item-control {
+    padding: 8px !important;
+}
+
 .spoiler {
     display: none;
 }
