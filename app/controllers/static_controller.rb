@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:home]
-  before_filter :allow_broadcaster, :except => [:home, :live]
+  before_filter :authenticate_user!, :except => [:home, :before_publish]
+  before_filter :allow_broadcaster, :except => [:home, :live, :before_publish]
   before_filter :allow_guest, :only => [:live]
 
   def home
@@ -11,7 +11,7 @@ class StaticController < ApplicationController
   def live
   end
 
-  def on_publish_done
+  def before_publish
     render :text => ''
   end
 
