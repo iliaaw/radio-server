@@ -39,16 +39,9 @@ class TracksController < ApplicationController
 
   def update
     @track = Track.find(params[:id])
-    if @track.update_attributes(params[:track])
-      respond_to do |format| 
-        format.html { redirect_to @track }
-        format.json { render :json => @track }
-      end
-    else
-      respond_to do |format|
-        format.html { render 'edit' }
-        format.json { render :json => @track.errors }
-      end
+    @track.update_attributes(params[:track])
+    respond_to do |format|
+      format.json { render :json => @track }
     end
   end
 
@@ -56,7 +49,6 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @track.destroy
     respond_to do |format|
-        format.html { redirect_to tracks_path }
         format.json { head :no_content }
       end
   end

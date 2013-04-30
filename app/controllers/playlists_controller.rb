@@ -24,16 +24,10 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(params[:playlist])
-    if @playlist.save
-      respond_to do |format|
-        format.html { redirect_to @playlist }
-        format.json { render :json => @playlist }
-      end
-    else
-      respond_to do |format|
-        format.html { render "new" }
-        format.json { render :json => @playlist.errors }
-      end
+    @playlist.save
+    respond_to do |format|
+      format.html { redirect_to @playlist }
+      format.json { render :json => @playlist }
     end
   end
 
@@ -47,14 +41,9 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
-    if @playlist.update_attributes(params[:playlist])
-      respond_to do |format|
-        format.json { render :json => @playlist }
-      end
-    else
-      respond_to do |format|
-        format.json { render :json => @playlist.errors }
-      end
+    @playlist.update_attributes(params[:playlist])
+    respond_to do |format|
+      format.json { render :json => @playlist }
     end
   end
 
@@ -62,7 +51,6 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     @playlist.destroy
     respond_to do |format|
-      format.html { redirect_to playlists_path }
       format.json { head :no_content }
     end
   end
