@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :allow_admin
+
+  before_filter do 
+    render :text => '', :status => :forbidden unless current_user.can_manage_users?
+  end
 
   def index
     @users = Kaminari.paginate_array(User.all(:order => "id")).page params[:page]        

@@ -1,5 +1,5 @@
 - provide :title, 'Live'
-- if current_user.is_broadcaster?
+- if current_user.can_manage_live_show?
   .live-control
     = link_to 'Enable live', '#',:class => 'enable-live-link'
     = link_to 'Disable live', '#', :class => 'disable-live-link'

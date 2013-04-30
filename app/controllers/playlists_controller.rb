@@ -1,7 +1,10 @@
 class PlaylistsController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :allow_dj
+
+  before_filter do
+    render :text => '', :status => :forbidden unless current_user.can_manage_tracks?
+  end
 
   def index
     @playlists = Kaminari.paginate_array(Playlist.all(:order => "id")).page params[:page]        

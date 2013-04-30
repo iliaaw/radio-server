@@ -3,27 +3,31 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  attr_accessible :admin, :dj, :broadcaster, :guest
+  attr_accessible :can_do_anything, :can_manage_tracks, :can_manage_users, :can_manage_live_show, :can_broadcast
 
-  def is_admin?
-    admin
+  def can_do_anything?
+    can_do_anything
   end
 
-  def is_dj?
-    dj || admin
+  def can_manage_tracks?
+    can_do_anything || can_manage_tracks
   end
 
-  def is_broadcaster?
-    broadcaster || admin
+  def can_manage_users?
+    can_do_anything || can_manage_users
   end
 
-  def is_guest?
-    guest || admin || broadcaster
+  def can_manage_live_show?
+    can_do_anything || can_manage_live_show
+  end
+
+  def can_broadcast?
+    can_do_anything || can_broadcast
   end
 
   alias_method :original_as_json, :as_json
 
   def as_json(options)
-    json = original_as_json(options.merge(:only => [:id, :email, :admin, :dj, :broadcaster, :guest]))
+    json = original_as_json(options.merge(:only => [:id, :email, :can_do_anything, :can_manage_tracks, :can_manage_users, :can_manage_live_show, :can_broadcast]))
   end
 end
