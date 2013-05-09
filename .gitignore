@@ -20,3 +20,4 @@ pickle-email-*.html
 /uploads/
 /shared/*
 /public/*.swf
+.idea/
