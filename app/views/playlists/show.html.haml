@@ -4,8 +4,5 @@
 .playlist-tracks-wrapper
 %a.spoiler-link{ :href => '#' } Add more tracks
 .spoiler
-  = form_tag tracks_path, :method => :get, :class => 'tracks-search-form form-inline' do
-    = text_field_tag :query, '', :placeholder => 'Title', :autocomplete => 'off'
-    = submit_tag 'Search by', :class => 'btn'
-    = select_tag :field, '<option>title</option><option>artist</option><option>album</option><option>genre</option>'.html_safe
+  = render 'form'
   .tracks-search-wrapper

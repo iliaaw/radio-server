@@ -1,0 +1,4 @@
+= form_tag tracks_path, :method => :get, :class => 'tracks-search-form form-inline' do
+  = text_field_tag :query, '', :placeholder => t(:'views.playlists.query'), :autocomplete => 'off'
+  = submit_tag t(:'views.playlists.search_by'), :class => 'btn'
+  = select_tag :field, "<option value='title'>#{t(:'views.playlists.by_title')}</option><option value='artist'>#{t(:'views.playlists.by_artist')}</option><option value='album'>#{t(:'views.playlists.by_album')}</option><option value='genre'>#{t(:'views.playlists.by_genre')}</option>".html_safe
