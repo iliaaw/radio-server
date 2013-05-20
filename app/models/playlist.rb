@@ -20,7 +20,7 @@ class Playlist < ActiveRecord::Base
   end
 
   def play_if_needed
-    if (self.now_playing_changed? and self.now_playing_change)
+    if self.now_playing
       Playlist.update_all(:now_playing => false)
 
       File.open(Rails.root.join('playlist.m3u'), 'w') do |file|
@@ -29,6 +29,7 @@ class Playlist < ActiveRecord::Base
         end
       end
 
+      TelnetAdapter.send_command('live.disable')
       TelnetAdapter.send_command('files.reload')
     end
   end
