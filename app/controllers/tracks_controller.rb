@@ -8,7 +8,7 @@ class TracksController < ApplicationController
   
   def index
     if params[:query] and ['title', 'artist', 'album', 'genre'].include? params[:field]
-      @tracks = Track.where("#{params[:field]} LIKE ?", "%#{params[:query]}%")
+      @tracks = Track.where("#{params[:field]} ILIKE ?", "%#{params[:query]}%")
     else
       @tracks = Kaminari.paginate_array(Track.all(:order => "id")).page params[:page]
     end
