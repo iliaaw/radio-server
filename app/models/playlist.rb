@@ -34,11 +34,7 @@ class Playlist < ActiveRecord::Base
   end
 
   def max_position
-    if self.listings.blank?
-      0
-    else
-      self.listings.last.position
-    end
+    self.listings.blank? ? 0 : self.listings.last.position
   end
 
 end
