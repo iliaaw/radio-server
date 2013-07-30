@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(:version => 20130427155530) do
     t.boolean  "can_do_anything",        :default => false
     t.boolean  "can_manage_tracks",      :default => false
     t.boolean  "can_manage_users",       :default => false
-    t.boolean  "can_manage_live_show",   :default => false
-    t.boolean  "can_broadcast",          :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
