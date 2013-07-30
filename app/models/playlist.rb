@@ -29,7 +29,6 @@ class Playlist < ActiveRecord::Base
         end
       end
 
-      TelnetAdapter.send_command('live.disable')
       TelnetAdapter.send_command('files.reload')
     end
   end
