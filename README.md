@@ -1,0 +1,1 @@
+This is my coursework project, web-interface for [LiquidSoap](http://savonet.sourceforge.net/) written in Ruby on Rails.
