@@ -3,7 +3,7 @@ class TracksController < ApplicationController
   before_filter :authenticate_user!
   
   before_filter do
-    render :text => '', :status => :forbidden unless current_user.can_manage_tracks?
+    head :forbidden unless current_user.can_manage_tracks?
   end
   
   def index
@@ -49,8 +49,8 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @track.destroy
     respond_to do |format|
-        format.json { head :no_content }
-      end
+      format.json { head :no_content }
+    end
   end
   
 end

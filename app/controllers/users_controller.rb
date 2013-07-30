@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   before_filter do 
-    render :text => '', :status => :forbidden unless current_user.can_manage_users?
+    head :forbidden unless current_user.can_manage_users?
   end
 
   def index
@@ -21,11 +21,6 @@ class UsersController < ApplicationController
     else
       render :json => { :error => true }, :status => 403
     end
-  end
-
-  private
-  def check_access
-    render :text => '', :status => :forbidden unless current_user.is_admin?
   end
   
 end

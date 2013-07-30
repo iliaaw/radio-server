@@ -1,18 +1,4 @@
 - provide :title, 'Users'
-.alert.alert-info.alert-block
-  %ul
-    %li 
-      %strong Admins
-      can do anything (manage tracks & playlists, manage live show, participate in live show and manage users)
-    %li 
-      %strong DJs
-      can manage tracks & playlists
-    %li 
-      %strong Broadcasters
-      can manage live show and participate in live show
-    %li 
-      %strong Guests
-      can participage in live show
 :javascript
   window._gUsersData = #{json_escape @users.to_json.html_safe};
 .users-wrapper
