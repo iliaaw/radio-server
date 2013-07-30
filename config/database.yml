@@ -1,8 +1,8 @@
 development:
   adapter: postgresql
-  database: kigendan_dev
-  username: rails
-  password: 4d003d1435f0827cfe18ac2d2a3979e7
+  database: DATABASE
+  username: USERNAME
+  password: PASSWORD
   host: localhost
   encoding: utf8
   pool: 5
@@ -10,9 +10,9 @@ development:
 
 test:
   adapter: postgresql
-  database: kigendan_test
-  username: rails
-  password: 4d003d1435f0827cfe18ac2d2a3979e7
+  database: DATABASE
+  username: USERNAME
+  password: PASSWORD
   host: localhost
   encoding: utf8
   pool: 5
@@ -20,9 +20,9 @@ test:
 
 production:
   adapter: postgresql
-  database: kigendan
-  username: rails
-  password: 4d003d1435f0827cfe18ac2d2a3979e7
+  database: DATABASE
+  username: USERNAME
+  password: PASSWORD
   host: localhost
   encoding: utf8
   pool: 5
