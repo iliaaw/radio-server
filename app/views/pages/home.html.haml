@@ -4,6 +4,6 @@
     - if @playlist.nil?
       Not playing
     - else
-      Now playing: #{@playlist.title}
+      Current playlist: #{@playlist.title}
 %audio{:controls => 'controls'}
   %source{:src => 'http://localhost:8000/outer.mp3'}

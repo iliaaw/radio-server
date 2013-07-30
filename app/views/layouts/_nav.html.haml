@@ -2,14 +2,13 @@
   .navbar-inner
     .container
       %ul.nav
-        = nav_link 'Home', 'static', 'home'
+        = nav_link 'Home', 'pages', 'home'
         - if user_signed_in?
           - if current_user.can_manage_tracks?
             = nav_link 'Tracks', 'tracks', 'index'
             = nav_link 'Upload tracks', 'tracks', 'new'
             = nav_link 'Playlists', 'playlists', 'index'
             = nav_link 'New playlist', 'playlists', 'new'
-          = nav_link 'Live', 'static', 'live'
           - if current_user.can_manage_users?
             = nav_link 'Users', 'users', 'index'
       %ul.nav.pull-right
